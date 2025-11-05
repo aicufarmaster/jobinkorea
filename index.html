@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI HR Generator - Foreign Worker Assessment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        html{scroll-behavior:smooth}body{font-family:'Poppins',Arial,sans-serif;background:#f0f4f8;color:#1f2937}.font-poppins{font-family:'Poppins',sans-serif}.hero-gradient{background:linear-gradient(135deg,#4f46e5 0%,#06b6d4 100%)}.form-card{background:white;border-radius:1rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.05);margin-top:-5rem;z-index:10;position:relative}.form-label{font-weight:600;color:#374151;margin-bottom:0.5rem;display:block;font-size:0.9rem}input,select,textarea{width:100%;border-radius:0.5rem;border:1px solid #d1d5db;padding:0.75rem;background:#f9fafb;font-size:1rem}input:focus,select:focus,textarea:focus{outline:none;border-color:#4f46e5;box-shadow:0 0 0 3px rgba(79,70,229,0.2)}.checkbox-label{display:inline-block;background:#f3f4f6;border:1px solid #d1d5db;padding:0.5rem 1rem;border-radius:9999px;font-size:0.9rem;cursor:pointer;transition:all 0.2s;margin:0.25rem}.checkbox-label input{display:none}.checkbox-label:hover{background:#e5e7eb}.checkbox-label input:checked+span{background:#3b82f6;color:white;border-color:#3b82f6;font-weight:500}.cta-button{display:inline-block;font-weight:700;font-size:1rem;border-radius:9999px;padding:0.75rem 2rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);border:none;cursor:pointer;transition:all 0.2s}.cta-button:hover{transform:scale(1.03)}.cta-button:disabled{opacity:0.6;cursor:not-allowed}.section-heading{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:700;color:#111827;border-bottom:2px solid #4f46e5;padding-bottom:0.5rem;margin-bottom:1.5rem}.modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center}.modal-content{background:#fff;margin:auto;padding:2rem;width:90%;max-width:600px;border-radius:1rem;text-align:center;transform:scale(0.95);opacity:0;transition:all 0.3s}.modal.show{display:flex}.modal.show .modal-content{transform:scale(1);opacity:1}#toast{position:fixed;top:20px;right:20px;background:#28a745;color:white;padding:1rem 1.5rem;border-radius:0.5rem;z-index:2000;opacity:0;transition:opacity 0.3s;font-weight:500}#toast.show{opacity:1}.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-radius:50%;border-top-color:white;animation:spin 0.6s linear infinite;margin-right:0.5rem}@keyframes spin{to{transform:rotate(360deg)}}.progress-bar{height:10px;background:#e5e7eb;border-radius:5px;overflow:hidden}.progress-fill{height:100%;background:linear-gradient(90deg,#4f46e5,#06b6d4);transition:width 0.3s}.multiple-badge{display:inline-block;background:#10b981;color:white;font-size:0.75rem;padding:0.25rem 0.5rem;border-radius:0.25rem;font-weight:600;margin-left:0.5rem}
+    </style>
+</head>
+<body>
+    <header class="hero-gradient text-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-poppins font-bold text-2xl">🌏 AI HR Generator</div>
+            <div class="font-poppins text-sm opacity-80">Foreign Worker Assessment</div>
+        </nav>
+        <div class="container mx-auto px-6 pt-10 pb-20 text-center">
+            <h1 class="font-poppins text-4xl md:text-5xl font-extrabold">Foreign Worker HR Document</h1>
+            <p class="mt-4 text-lg max-w-3xl mx-auto text-indigo-100">🇻🇳 AI-Powered Evaluation for Vietnam & Southeast Asia Workers</p>
+        </div>
+    </header>
+    <main class="container mx-auto px-6 pb-20">
+        <div class="form-card max-w-4xl mx-auto">
+            <section>
+                <h2 class="section-heading">📋 1. Personal Information</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div><label for="name" class="form-label">Full Name *</label><input type="text" id="name" placeholder="Nguyen Van A" required></div>
+                    <div><label for="age" class="form-label">Age *</label><input type="number" id="age" placeholder="28" required></div>
+                    <div><label for="gender" class="form-label">Gender *</label><select id="gender" required><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div>
+                    <div><label for="nationality" class="form-label">Nationality *</label><select id="nationality" required><option value="">Select</option><option value="Vietnam">🇻🇳 Vietnam</option><option value="Thailand">🇹🇭 Thailand</option><option value="Philippines">🇵🇭 Philippines</option><option value="Indonesia">🇮🇩 Indonesia</option><option value="Myanmar">🇲🇲 Myanmar</option><option value="Cambodia">🇰🇭 Cambodia</option><option value="Laos">🇱🇦 Laos</option><option value="Other">Other</option></select></div>
+                    <div class="lg:col-span-2"><label for="email" class="form-label">Email *</label><input type="email" id="email" placeholder="nguyenvana@example.com" required></div>
+                    <div><label for="phone" class="form-label">Phone Number</label><input type="tel" id="phone" placeholder="+84 90 123 4567"></div>
+                    <div class="md:col-span-2 lg:col-span-3"><label for="education" class="form-label">Education Background</label><input type="text" id="education" placeholder="Hanoi University, Mechanical Engineering"></div>
+                    <div class="md:col-span-2 lg:col-span-3"><label for="sentence" class="form-label">Professional Summary (One sentence)</label><input type="text" id="sentence" placeholder="Experienced factory worker with 5 years in electronics assembly"></div>
+                    <div class="md:col-span-2 lg:col-span-3"><label for="workExperience" class="form-label">Work History (Write in detail)</label><textarea id="workExperience" rows="4" placeholder="Samsung Vietnam Factory - Assembly Line Operator (2019-2024)&#10;Main tasks: Electronics assembly, quality inspection, equipment maintenance"></textarea></div>
+                </div>
+            </section>
+            <section class="mt-10">
+                <h2 class="section-heading">💼 2. Skills & Experience Assessment (11 Questions)</h2>
+                <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                    <p class="text-green-800 font-semibold text-base">✅ <strong>MULTIPLE SELECTIONS ALLOWED</strong> - Click all options that describe you!</p>
+                    <p class="text-green-700 text-sm mt-1">You can choose more than one answer for each question. Select everything that applies to you.</p>
+                </div>
+                <div id="survey-container" class="space-y-6"></div>
+            </section>
+            <section class="mt-10">
+                <h2 class="section-heading">🤖 3. AI Document Generation</h2>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                    <h4 class="font-bold text-blue-900 mb-2">📄 AI will create for you:</h4>
+                    <ul class="text-sm text-blue-800 space-y-1">
+                        <li>✅ Professional Skills Evaluation Report</li>
+                        <li>✅ Korean Company Job Matching Recommendations</li>
+                        <li>✅ Work Permit & Visa Documentation Support</li>
+                        <li>✅ Complete HR Assessment for Employers</li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <button type="button" id="generate-btn" class="cta-button bg-indigo-600 hover:bg-indigo-700 text-white text-xl py-4 px-8">🚀 Generate My HR Document</button>
+                </div>
+                <div id="generation-progress" class="hidden mt-6">
+                    <p class="text-center text-gray-700 font-semibold mb-2">🤖 AI is analyzing your profile...</p>
+                    <div class="progress-bar"><div id="progress-fill" class="progress-fill" style="width:0%"></div></div>
+                    <p class="text-center text-sm text-gray-500 mt-2" id="progress-text">Processing...</p>
+                </div>
+                <div id="prompt-output" class="hidden mt-6 bg-green-50 border-2 border-green-200 p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-green-800 mb-3">✅ Document Generated Successfully!</h3>
+                    <p class="text-gray-700 mb-4">Your professional evaluation is ready. Click below to save it to our database.</p>
+                    
+                    <!-- ⭐ 생성된 문서 미리보기 (주석 처리로 숨김/표시 가능) -->
+                    <div id="generated-document-preview" class="mb-6 p-4 bg-white border border-gray-300 rounded-lg max-h-96 overflow-y-auto">
+                        <h4 class="font-bold text-gray-800 mb-2">📄 Generated Document Preview:</h4>
+                        <pre id="document-content" class="text-sm text-gray-700 whitespace-pre-wrap font-mono"></pre>
+                    </div>
+                    <!-- ⭐ 미리보기 끝 - 위 <div id="generated-document-preview">...</div>를 주석 처리하면 숨김 -->
+                    
+                    <button id="apply-btn" class="cta-button bg-green-600 hover:bg-green-700 text-white text-lg py-3 px-6">📤 Submit & Save My Document</button>
+                </div>
+            </section>
+            <section class="mt-12 pt-8 border-t border-gray-200">
+                <h2 class="section-heading">🔎 4. Upload Documents (Optional)</h2>
+                <p class="text-sm text-yellow-700 mb-4"><strong>⚠️ Important:</strong> Use the <strong>same name and email</strong> as entered above</p>
+                <div class="border-2 border-dashed border-gray-300 rounded-lg bg-gray-50" style="min-height:800px;">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeFVSo8b2FevQSdL0C3VoB0t-R96uPj098EvuTs2cxUA6MS1g/viewform?embedded=true" width="100%" height=“300" frameborder="0" style="border:0;">Loading…</iframe>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2025 AI HR Generator - Supporting Foreign Workers in Korea 🇰🇷</p>
+            <p class="mt-1 text-gray-400">Version 4.1 - November 2025</p>
+        </div>
+    </footer>
+    <div id="toast"></div>
+    
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <div class="text-6xl mb-4">🎉</div>
+            <h2 class="text-3xl font-bold mb-3">Success!</h2>
+            <p class="text-lg mb-4">Your HR document has been saved successfully to our database.</p>
+            <div id="doc-link-container" class="hidden mb-6 p-4 bg-blue-50 rounded-lg">
+                <p class="text-sm text-gray-600 mb-2">📄 View your document:</p>
+                <a id="doc-link" href="#" target="_blank" class="text-blue-600 underline font-semibold hover:text-blue-800">Open Google Docs →</a>
+            </div>
+            <button id="modal-close-btn" class="cta-button bg-blue-600 text-white text-lg py-3 px-8 w-full">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // ⭐ 여기에 새로 배포한 Apps Script URL을 입력하세요!
+        const APP_URL = 'https://script.google.com/macros/s/AKfycby7YPpIu80cUs0CvsDA8GWH4xAl9OX1BfXWSp5DXmugTeremSasNJU9hLZXDTLt-hjY/exec';
+        const SPREADSHEET_ID = '1YTGJAbqe58Z5w_O1Z-Awsmhoh09PFIIV1jsKvLtMrAE';
+        
+        const mfg = {
+            id: 'q_manufacturing',
+            label: 'Q-Manufacturing Experience (Select all that apply)',
+            badge: 'MULTIPLE OK',
+            options: ['Assembly/Production Line', 'Quality Control/Inspection', 'Machine Operation/Maintenance', 'Logistics/Warehouse', 'Safety/Environment', 'Packaging', 'Forklift Operation']
+        };
+        
+        const qs = [
+            {id:'q1',label:'Q1. What is your main job experience? (Select all)',badge:'MULTIPLE OK',options:['Manufacturing/Factory','Construction','Service/Restaurant','Agriculture/Farming','Electronics','Automotive','Textiles/Garment','Food Processing','Other']},
+            {id:'q2',label:'Q2. What skills do you have? (Select all)',badge:'MULTIPLE OK',options:['Machine Operation','Quality Inspection','Welding','Forklift License','Computer/Office Work','Team Leadership','Korean Language (TOPIK)','English','Chinese','Basic Math','Other']},
+            {id:'q3',label:'Q3. Your personality strengths (Select all)',badge:'MULTIPLE OK',options:['Hard-working','Fast Learner','Team Player','Careful/Detail-oriented','Punctual','Reliable','Flexible','Patient','Honest','Other']},
+            {id:'q4',label:'Q4. Preferred work environment (Select all)',badge:'MULTIPLE OK',options:['Factory/Manufacturing','Office Work','Outdoor Work','Shift Work OK','Night Shift OK','Overtime OK','Weekend Work OK','Team-based Work','Independent Work','Other']},
+            {id:'q5',label:'Q5. Your role in team (Select all)',badge:'MULTIPLE OK',options:['Team Leader','Worker/Operator','Quality Checker','Helper/Assistant','Trainer','Problem Solver','Translator','Other']},
+            {id:'q6',label:'Q6. How do you solve problems? (Select all)',badge:'MULTIPLE OK',options:['Ask supervisor','Try myself first','Discuss with team','Follow manual/procedure','Use experience','Learn from others','Search online','Other']},
+            {id:'q7',label:'Q7. Your achievement/success (Select all)',badge:'MULTIPLE OK',options:['Perfect attendance','Quality award','Productivity improvement','Safety record','Team leader promotion','Skill certification','Salary increase','Employee of the month','Other']},
+            {id:'q8',label:'Q8. Communication style (Select all)',badge:'MULTIPLE OK',options:['Direct/Clear','Listen carefully','Follow instructions','Ask questions when unsure','Visual/Show me','Written notes','Use translation app','Other']},
+            {id:'q9',label:'Q9. Which Korean industry interests you? (Select all)',badge:'MULTIPLE OK',options:['Electronics (Samsung, LG)','Automotive (Hyundai, Kia)','Shipbuilding','Steel/Metal','Construction','Food/Beverage','Textiles/Fashion','Plastics/Rubber','Other']},
+            {id:'q10',label:'Q10. Your goal in Korea - next 3 years (Select all)',badge:'MULTIPLE OK',options:['Save money for family','Learn advanced skills','Get certification','Become team leader','Stable long-term job','Return home with experience','Start own business later','Bring family to Korea','Other']}
+        ];
+        
+        let selections = {};
+        let currentData = {};
+        
+        function render() {
+            const c = document.getElementById('survey-container');
+            let h = '';
+            
+            h += `<div class="p-5 border-2 border-green-500 rounded-lg bg-green-50">
+                <div class="flex items-center mb-2">
+                    <label class="form-label font-bold text-green-900 text-base mb-0">${mfg.label}</label>
+                    <span class="multiple-badge">${mfg.badge}</span>
+                </div>
+                <p class="text-xs text-green-700 mb-3">⬇️ Click ALL options that describe your manufacturing experience (Optional)</p>
+                <div class="flex flex-wrap gap-2 mt-3">`;
+            mfg.options.forEach(o => h += `<label class="checkbox-label"><input type="checkbox" name="${mfg.id}" value="${o}"><span>${o}</span></label>`);
+            h += `</div></div>`;
+            
+            qs.forEach(q => {
+                h += `<div class="p-4 border border-gray-300 rounded-lg bg-white">
+                    <div class="flex items-center mb-2">
+                        <label class="form-label font-semibold text-gray-800 mb-0">${q.label}</label>
+                        <span class="multiple-badge">${q.badge}</span>
+                    </div>
+                    <p class="text-xs text-gray-600 mb-3">👉 You can select more than one answer</p>
+                    <div class="flex flex-wrap gap-2 mt-2">`;
+                q.options.forEach(o => h += `<label class="checkbox-label"><input type="checkbox" name="${q.id}" value="${o}"><span>${o}</span></label>`);
+                h += `</div></div>`;
+            });
+            
+            c.innerHTML = h;
+            
+            document.querySelectorAll('.checkbox-label input').forEach(cb => {
+                cb.addEventListener('change', function() {
+                    const qid = this.name;
+                    const val = this.value;
+                    if (!selections[qid]) selections[qid] = [];
+                    const idx = selections[qid].indexOf(val);
+                    if (this.checked && idx === -1) selections[qid].push(val);
+                    else if (!this.checked && idx > -1) selections[qid].splice(idx, 1);
+                    
+                    // 체크된 상태 시각화
+                    this.parentElement.classList.toggle('bg-blue-500', this.checked);
+                    this.parentElement.classList.toggle('text-white', this.checked);
+                });
+            });
+        }
+        
+        function getData() {
+            return {
+                name: document.getElementById('name').value.trim(),
+                age: document.getElementById('age').value.trim(),
+                gender: document.getElementById('gender').value,
+                nationality: document.getElementById('nationality').value,
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                education: document.getElementById('education').value.trim(),
+                sentence: document.getElementById('sentence').value.trim(),
+                workExperience: document.getElementById('workExperience').value.trim(),
+                selections: selections
+            };
+        }
+        
+        function generatePrompt(d) {
+            return `# AI HR DOCUMENT - FOREIGN WORKER COMPREHENSIVE EVALUATION
+
+## APPLICANT PROFILE
+- **Name:** ${d.name}
+- **Age:** ${d.age}
+- **Gender:** ${d.gender}
+- **Nationality:** ${d.nationality} 🌏
+- **Email:** ${d.email}
+- **Phone:** ${d.phone || 'N/A'}
+- **Education:** ${d.education || 'N/A'}
+- **Professional Summary:** ${d.sentence || 'N/A'}
+- **Work History:** ${d.workExperience || 'N/A'}
+
+## COMPREHENSIVE SKILLS ASSESSMENT
+${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**${k}:** ${d.selections[k].join(', ')}`).join('\n')}
+
+---
+
+## AI EVALUATION INSTRUCTIONS
+
+Create a detailed HR evaluation for a **foreign worker from ${d.nationality}** seeking employment in South Korea.
+
+### **[PAGE 1: EXECUTIVE SUMMARY & SKILLS EVALUATION]**
+- Overall rating (★★★★★)
+- Technical skills assessment
+- Korean language proficiency estimate
+- Cultural adaptability indicators
+
+### **[PAGE 2: KOREAN COMPANY JOB MATCHING]**
+Recommend **5-7 Korean companies**:
+- Company: Samsung, LG, Hyundai, etc.
+- Position: Assembly Worker, QC Inspector, etc.
+- Match Score: 0-100%
+- Expected Salary: KRW/month
+- Why Suitable: 2-3 sentences
+
+### **[PAGE 3: WORK PERMIT & INTEGRATION]**
+- Visa type (E-9, H-2)
+- Required certifications
+- Korean language requirement
+- Timeline & costs
+
+### **[PAGE 4: TRAINING & DEVELOPMENT]**
+- Immediate training needs
+- Recommended programs
+- Skill certifications
+
+### **[PAGE 5: FINAL ASSESSMENT]**
+- Hiring recommendation
+- Compensation range
+- Retention strategy
+- Risk assessment
+
+**Format:** 2000-2500 words, professional tone, [PAGE BREAK] markers.`;
+        }
+        
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3500);
+        }
+        
+        function updateProgress(p, txt) {
+            document.getElementById('progress-fill').style.width = p + '%';
+            document.getElementById('progress-text').textContent = txt;
+        }
+        
+        async function handleGen() {
+            const d = getData();
+            if (!d.name || !d.email || !d.nationality) {
+                alert('❌ Required fields:\n• Name\n• Email\n• Nationality');
+                return;
+            }
+            
+            const btn = document.getElementById('generate-btn');
+            const prog = document.getElementById('generation-progress');
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span> AI working...';
+            prog.classList.remove('hidden');
+            
+            try {
+                updateProgress(15, '🔍 Analyzing...');
+                await new Promise(r => setTimeout(r, 700));
+                updateProgress(50, '🧠 Processing...');
+                await new Promise(r => setTimeout(r, 800));
+                updateProgress(85, '📄 Creating...');
+                
+                currentData = d;
+                currentData.fullPrompt = generatePrompt(d);
+                currentData.timestamp = new Date().toLocaleString('ko-KR');
+                
+                // ⭐ 생성된 문서를 화면에 표시
+                document.getElementById('document-content').textContent = currentData.fullPrompt;
+                
+                await new Promise(r => setTimeout(r, 600));
+                updateProgress(100, '✅ Complete!');
+                await new Promise(r => setTimeout(r, 400));
+                
+                prog.classList.add('hidden');
+                document.getElementById('prompt-output').classList.remove('hidden');
+                showToast('✅ Document ready!');
+                
+                setTimeout(() => document.getElementById('prompt-output').scrollIntoView({behavior: 'smooth', block: 'center'}), 400);
+            } catch (e) {
+                alert('❌ Error: ' + e.message);
+                prog.classList.add('hidden');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '🚀 Generate My HR Document';
+            }
+        }
+        
+        function showModal() {
+            document.getElementById('success-modal').classList.add('show');
+        }
+        
+        function closeModal() {
+            document.getElementById('success-modal').classList.remove('show');
+        }
+        
+        async function submitData() {
+            const btn = document.getElementById('apply-btn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span> Saving...';
+            
+            try {
+                currentData.action = 'submitData';
+                
+                console.log('📤 Sending to server...');
+                console.log('URL:', APP_URL);
+                console.log('Data:', JSON.stringify(currentData).substring(0, 200) + '...');
+                
+                // Google Apps Script는 redirect를 사용하므로 fetch 대신 form submit 방식 사용
+                const formData = new FormData();
+                formData.append('data', JSON.stringify(currentData));
+                
+                const res = await fetch(APP_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(currentData),
+                    redirect: 'follow'
+                });
+                
+                console.log('📥 Response status:', res.status);
+                
+                if (res.ok || res.type === 'opaque') {
+                    // 성공 (또는 CORS로 인해 응답 확인 불가)
+                    console.log('✅ Request sent successfully');
+                    showModal();
+                    showToast('✅ Data saved to database!');
+                    
+                    // Apps Script 로그 확인 안내
+                    console.log('🔍 To verify: Check Apps Script > Executions');
+                } else {
+                    throw new Error('HTTP ' + res.status);
+                }
+                
+            } catch (e) {
+                console.error('❌ Error:', e);
+                
+                // 에러가 발생해도 실제로는 저장되었을 수 있음 (CORS 이슈)
+                const proceed = confirm(
+                    '⚠️ Network error detected\n\n' +
+                    'This might be a CORS issue. Your data may have been saved.\n\n' +
+                    '🔧 Troubleshooting:\n' +
+                    '1. Apps Script deployed as "Anyone"?\n' +
+                    '2. Check Apps Script > Executions log\n' +
+                    '3. Check Google Sheets for new row\n\n' +
+                    'Continue anyway?'
+                );
+                
+                if (proceed) {
+                    showModal();
+                    console.log('📋 Check your Google Sheet:', SPREADSHEET_ID);
+                }
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '📤 Submit & Save My Document';
+            }
+        }
+        
+        // 초기화
+        render();
+        document.getElementById('generate-btn').addEventListener('click', handleGen);
+        document.getElementById('apply-btn').addEventListener('click', submitData);
+        document.getElementById('modal-close-btn').addEventListener('click', () => {
+            closeModal();
+            if (confirm('✅ Success!\n\nCreate another profile?')) {
+                location.reload();
+            }
+        });
+        
+        console.log('✅ AI HR Generator v4.1 loaded');
+        console.log('📍 Apps Script URL:', APP_URL);
+        console.log('📊 Spreadsheet ID:', SPREADSHEET_ID);
+        
+        // ⭐ 디버깅용 - 브라우저 콘솔에서 testConnection() 실행 가능
+        window.testConnection = async function() {
+            console.log('🔍 Testing connection to Apps Script...');
+            try {
+                const res = await fetch(APP_URL);
+                console.log('✅ Connection successful!');
+                console.log('Response:', res);
+                return true;
+            } catch (e) {
+                console.error('❌ Connection failed:', e);
+                return false;
+            }
+        };
+        
+        // ⭐ 디버깅용 - 현재 데이터 확인
+        window.checkCurrentData = function() {
+            console.log('📋 Current Data:', currentData);
+            return currentData;
+        };
+    </script>
+</body>
+</html>
