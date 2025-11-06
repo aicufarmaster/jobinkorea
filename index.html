@@ -142,9 +142,9 @@
                     <div class="md:col-span-2 lg:col-span-3">
                         <label for="e7visa" class="form-label" data-en="Do you have E-7 Visa? *" data-vi="Bạn có Visa E-7? *" data-zh="你有E-7签证吗？*" data-mn="E-7 виз байгаа юу? *" data-ne="तपाईंसँग E-7 भिसा छ? *" data-ko="E-7 비자 보유 여부 *">Do you have E-7 Visa? *</label>
                         <select id="e7visa" required>
-                            <option value="">Select / 선택</option>
-                            <option value="No">No / 없음</option>
-                            <option value="Yes">Yes / 있음</option>
+                            <option value="">Select</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
                         </select>
                     </div>
                     <div id="visa-period-container" class="md:col-span-2 lg:col-span-3 hidden">
@@ -262,7 +262,6 @@
         
         let currentLang = 'en';
 
-        // **수정됨:** 언어별 예시 텍스트(플레이스홀더) 추가
         const placeholders = {
             name: {
                 en: 'John Doe',
@@ -323,6 +322,7 @@
             }
         };
         
+        // **수정됨:** mfg.options 를 6개 국어 객체로 변경
         const mfg = {
             id: 'q_manufacturing',
             label: {
@@ -341,20 +341,182 @@
                 ne: 'धेरै छान्नुहोस्',
                 ko: '복수선택'
             },
-            options: ['Assembly/Production Line', 'Quality Control/Inspection', 'Machine Operation/Maintenance', 'Logistics/Warehouse', 'Safety/Environment', 'Packaging', 'Forklift Operation']
+            options: [
+                {en: 'Assembly/Production Line', vi: 'Dây chuyền lắp ráp/Sản xuất', zh: '组装/生产线', mn: 'Угсрах/Үйлдвэрлэлийн шугам', ne: 'एसेम्बली/उत्पादन लाइन', ko: '조립/생산 라인'},
+                {en: 'Quality Control/Inspection', vi: 'Kiểm soát/Kiểm tra chất lượng', zh: '质量控制/检验', mn: 'Чанарын хяналт/Шалгалт', ne: 'गुणस्तर नियन्त्रण/निरीक्षण', ko: '품질 관리/검사'},
+                {en: 'Machine Operation/Maintenance', vi: 'Vận hành/Bảo trì máy', zh: '机器操作/维护', mn: 'Машин ажиллагаа/Засвар үйлчилгээ', ne: 'मेसिन सञ्चालन/मर्मत', ko: '기계 조작/유지보수'},
+                {en: 'Logistics/Warehouse', vi: 'Logistics/Kho bãi', zh: '物流/仓库', mn: 'Логистик/Агуулах', ne: 'लजिस्टिक्स/गोदाम', ko: '물류/창고'},
+                {en: 'Safety/Environment', vi: 'An toàn/Môi trường', zh: '安全/环境', mn: 'Аюулгүй байдал/Байгаль орчин', ne: 'सुरक्षा/वातावरण', ko: '안전/환경'},
+                {en: 'Packaging', vi: 'Đóng gói', zh: '包装', mn: 'Сав баглаа боодол', ne: 'प्याकेजिङ', ko: '포장'},
+                {en: 'Forklift Operation', vi: 'Vận hành xe nâng', zh: '叉车操作', mn: 'Сэрээт өргөгч оператор', ne: 'फोर्कलिफ्ट सञ्चालन', ko: '지게차 운전'}
+            ]
         };
         
+        // **수정됨:** qs.options 를 6개 국어 객체로 변경 (q1 ~ q5)
         const qs = [
-            {id:'q1',label:{en:'Q1. What is your main job experience? (Select all)',vi:'Q1. Kinh nghiệm công việc chính? (Chọn tất cả)',zh:'Q1. 你的主要工作经验？（全选）',mn:'Q1. Таны үндсэн ажлын туршлага? (Бүгдийг сонгоно уу)',ne:'Q1. तपाईंको मुख्य काम अनुभव? (सबै चयन गर्नुहोस्)',ko:'Q1. 주요 업무 경험은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Manufacturing/Factory','Construction','Service/Restaurant','Agriculture/Farming','Electronics','Automotive','Textiles/Garment','Food Processing','Other']},
-            {id:'q2',label:{en:'Q2. What skills do you have? (Select all)',vi:'Q2. Bạn có kỹ năng gì? (Chọn tất cả)',zh:'Q2. 你有什么技能？（全选）',mn:'Q2. Ямар ур чадвартай вэ? (Бүгдийг сонгоно уу)',ne:'Q2. तपाईंसँग के सीपहरू छन्? (सबै चयन गर्नुहोस्)',ko:'Q2. 보유 기술은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Machine Operation','Quality Inspection','Welding','Forklift License','Computer/Office Work','Team Leadership','Korean Language (TOPIK)','English','Chinese','Basic Math','Other']},
-            {id:'q3',label:{en:'Q3. Your personality strengths (Select all)',vi:'Q3. Điểm mạnh tính cách (Chọn tất cả)',zh:'Q3. 你的性格优势（全选）',mn:'Q3. Таны зан чанарын давуу тал (Бүгдийг сонгоно уу)',ne:'Q3. तपाईंको व्यक्तित्व शक्ति (सबै चयन गर्नुहोस्)',ko:'Q3. 성격의 강점은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Hard-working','Fast Learner','Team Player','Careful/Detail-oriented','Punctual','Reliable','Flexible','Patient','Honest','Other']},
-            {id:'q4',label:{en:'Q4. Preferred work environment (Select all)',vi:'Q4. Môi trường làm việc ưa thích (Chọn tất cả)',zh:'Q4. 首选工作环境（全选）',mn:'Q4. Илүүд үздэг ажлын орчин (Бүгдийг сонгоно уу)',ne:'Q4. मनपर्ने कार्य वातावरण (सबै चयन गर्नुहोस्)',ko:'Q4. 선호하는 근무 환경은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Factory/Manufacturing','Office Work','Outdoor Work','Shift Work OK','Night Shift OK','Overtime OK','Weekend Work OK','Team-based Work','Independent Work','Other']},
-            {id:'q5',label:{en:'Q5. Your role in team (Select all)',vi:'Q5. Vai trò trong nhóm (Chọn tất cả)',zh:'Q5. 你在团队中的角色（全选）',mn:'Q5. Багт гүйцэтгэх үүрэг (Бүгдийг сонгоно уу)',ne:'Q5. टोलीमा तपाईंको भूमिका (सबै चयन गर्नुहोस्)',ko:'Q5. 팀에서 역할은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Team Leader','Worker/Operator','Quality Checker','Helper/Assistant','Trainer','Problem Solver','Translator','Other']},
-            {id:'q6',label:{en:'Q6. How do you solve problems? (Select all)',vi:'Q6. Bạn giải quyết vấn đề như thế nào? (Chọn tất cả)',zh:'Q6. 你如何解决问题？（全选）',mn:'Q6. Асуудлыг хэрхэн шийддэг вэ? (Бүгдийг сонгоно уу)',ne:'Q6. तपाईं समस्या कसरी समाधान गर्नुहुन्छ? (सबै चयन गर्नुहोस्)',ko:'Q6. 문제 해결 방식은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Ask supervisor','Try myself first','Discuss with team','Follow manual/procedure','Use experience','Learn from others','Search online','Other']},
-            {id:'q7',label:{en:'Q7. Your achievement/success (Select all)',vi:'Q7. Thành tích/thành công (Chọn tất cả)',zh:'Q7. 你的成就/成功（全选）',mn:'Q7. Таны амжилт/ололт (Бүгдийг сонгоно уу)',ne:'Q7. तपाईंको उपलब्धि/सफलता (सबै चयन गर्नुहोस्)',ko:'Q7. 성과/성공 경험은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Perfect attendance','Quality award','Productivity improvement','Safety record','Team leader promotion','Skill certification','Salary increase','Employee of the month','Other']},
-            {id:'q8',label:{en:'Q8. Communication style (Select all)',vi:'Q8. Phong cách giao tiếp (Chọn tất cả)',zh:'Q8. 沟通风格（全选）',mn:'Q8. Харилцааны хэв маяг (Бүгдийг сонгоно уу)',ne:'Q8. संचार शैली (सबै चयन गर्नुहोस्)',ko:'Q8. 의사소통 스타일은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Direct/Clear','Listen carefully','Follow instructions','Ask questions when unsure','Visual/Show me','Written notes','Use translation app','Other']},
-            {id:'q9',label:{en:'Q9. Which Korean industry interests you? (Select all)',vi:'Q9. Ngành công nghiệp Hàn Quốc nào bạn quan tâm? (Chọn tất cả)',zh:'Q9. 你对哪个韩国行业感兴趣？（全选）',mn:'Q9. Солонгосын аль салбар сонирхож байна? (Бүгдийг сонгоно уу)',ne:'Q9. तपाईंलाई कुन कोरियाली उद्योगमा रुचि छ? (सबै चयन गर्नुहोस्)',ko:'Q9. 관심 있는 한국 산업은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Electronics (Samsung, LG)','Automotive (Hyundai, Kia)','Shipbuilding','Steel/Metal','Construction','Food/Beverage','Textiles/Fashion','Plastics/Rubber','Other']},
-            {id:'q10',label:{en:'Q10. Your goal in Korea - next 3 years (Select all)',vi:'Q10. Mục tiêu tại Hàn Quốc - 3 năm tới (Chọn tất cả)',zh:'Q10. 你在韩国的目标 - 未来3年（全选）',mn:'Q10. Солонгос дахь зорилго - дараагийн 3 жил (Бүгдийг сонгоно уу)',ne:'Q10. कोरियामा तपाईंको लक्ष्य - अर्को ३ वर्ष (सबै चयन गर्नुहोस्)',ko:'Q10. 한국에서 향후 3년 목표는? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Save money for family','Learn advanced skills','Get certification','Become team leader','Stable long-term job','Return home with experience','Start own business later','Bring family to Korea','Other']}
+            {
+                id:'q1',
+                label:{en:'Q1. What is your main job experience? (Select all)',vi:'Q1. Kinh nghiệm công việc chính? (Chọn tất cả)',zh:'Q1. 你的主要工作经验？（全选）',mn:'Q1. Таны үндсэн ажлын туршлага? (Бүгдийг сонгоно уу)',ne:'Q1. तपाईंको मुख्य काम अनुभव? (सबै चयन गर्नुहोस्)',ko:'Q1. 주요 업무 경험은? (복수선택)'},
+                badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},
+                options:[
+                    {en: 'Manufacturing/Factory', vi: 'Sản xuất/Nhà máy', zh: '制造/工厂', mn: 'Үйлдвэрлэл/Үйлдвэр', ne: 'निर्माण/कारखाना', ko: '제조/공장'},
+                    {en: 'Construction', vi: 'Xây dựng', zh: '建筑', mn: 'Барилга', ne: 'निर्माण', ko: '건설'},
+                    {en: 'Service/Restaurant', vi: 'Dịch vụ/Nhà hàng', zh: '服务/餐厅', mn: 'Үйлчилгээ/Ресторан', ne: 'सेवा/रेस्टुरेन्ट', ko: '서비스/요식업'},
+                    {en: 'Agriculture/Farming', vi: 'Nông nghiệp/Nông trại', zh: '农业/农场', mn: 'Хөдөө аж ахуй/Ферм', ne: 'कृषि/खेती', ko: '농업/축산업'},
+                    {en: 'Electronics', vi: 'Điện tử', zh: '电子', mn: 'Электроник', ne: 'इलेक्ट्रोनिक्स', ko: '전자'},
+                    {en: 'Automotive', vi: 'Ô tô', zh: '汽车', mn: 'Автомашин', ne: 'अटोमोटिभ', ko: '자동차'},
+                    {en: 'Textiles/Garment', vi: 'Dệt may/May mặc', zh: '纺织/服装', mn: 'Нэхмэл/Оёдол', ne: 'कपडा/गार्मेन्ट', ko: '섬유/의류'},
+                    {en: 'Food Processing', vi: 'Chế biến thực phẩm', zh: '食品加工', mn: 'Хүнсний боловсруулалт', ne: 'खाद्य प्रशोधन', ko: '식품 가공'},
+                    {en: 'Other', vi: 'Khác', zh: '其他', mn: 'Бусад', ne: 'अन्य', ko: '기타'}
+                ]
+            },
+            {
+                id:'q2',
+                label:{en:'Q2. What skills do you have? (Select all)',vi:'Q2. Bạn có kỹ năng gì? (Chọn tất cả)',zh:'Q2. 你有什么技能？（全选）',mn:'Q2. Ямар ур чадвартай вэ? (Бүгдийг сонгоно уу)',ne:'Q2. तपाईंसँग के सीपहरू छन्? (सबै चयन गर्नुहोस्)',ko:'Q2. 보유 기술은? (복수선택)'},
+                badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},
+                options:[
+                    {en: 'Machine Operation', vi: 'Vận hành máy', zh: '机器操作', mn: 'Машин ажиллагаа', ne: 'मेसिन सञ्चालन', ko: '기계 조작'},
+                    {en: 'Quality Inspection', vi: 'Kiểm tra chất lượng', zh: '质量检验', mn: 'Чанарын шалгалт', ne: 'गुणस्तर निरीक्षण', ko: '품질 검사'},
+                    {en: 'Welding', vi: 'Hàn', zh: '焊接', mn: 'Гагнуур', ne: 'वेल्डिङ', ko: '용접'},
+                    {en: 'Forklift License', vi: 'Bằng lái xe nâng', zh: '叉车证', mn: 'Сэрээт өргөгч оператор', ne: 'फोर्कलिफ्ट लाइसेन्स', ko: '지게차 자격증'},
+                    {en: 'Computer/Office Work', vi: 'Máy tính/Công việc văn phòng', zh: '电脑/办公室工作', mn: 'Компьютер/Оффисын ажил', ne: 'कम्प्युटर/कार्यालय काम', ko: '컴퓨터/사무'},
+                    {en: 'Team Leadership', vi: 'Lãnh đạo nhóm', zh: '团队领导', mn: 'Баг удирдах', ne: 'टोली नेतृत्व', ko: '팀 리더십'},
+                    {en: 'Korean Language (TOPIK)', vi: 'Tiếng Hàn (TOPIK)', zh: '韩语 (TOPIK)', mn: 'Солонгос хэл (TOPIK)', ne: 'कोरियाली भाषा (TOPIK)', ko: '한국어 (TOPIK)'},
+                    {en: 'English', vi: 'Tiếng Anh', zh: '英语', mn: 'Англи хэл', ne: 'अंग्रेजी', ko: '영어'},
+                    {en: 'Chinese', vi: 'Tiếng Trung', zh: '中文', mn: 'Хятад хэл', ne: 'चिनियाँ', ko: '중국어'},
+                    {en: 'Basic Math', vi: 'Toán cơ bản', zh: '基础数学', mn: 'Математикийн үндсэн мэдлэг', ne: 'आधारभूत गणित', ko: '기본 수학'},
+                    {en: 'Other', vi: 'Khác', zh: '其他', mn: 'Бусад', ne: 'अन्य', ko: '기타'}
+                ]
+            },
+            {
+                id:'q3',
+                label:{en:'Q3. Your personality strengths (Select all)',vi:'Q3. Điểm mạnh tính cách (Chọn tất cả)',zh:'Q3. 你的性格优势（全选）',mn:'Q3. Таны зан чанарын давуу тал (Бүгдийг сонгоно уу)',ne:'Q3. तपाईंको व्यक्तित्व शक्ति (सबै चयन गर्नुहोस्)',ko:'Q3. 성격의 강점은? (복수선택)'},
+                badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},
+                options:[
+                    {en: 'Hard-working', vi: 'Chăm chỉ', zh: '努力工作', mn: 'Ажилсаг', ne: 'परिश्रमी', ko: '성실함'},
+                    {en: 'Fast Learner', vi: 'Người học nhanh', zh: '学习快', mn: 'Хурдан сурдаг', ne: 'छिटो सिक्ने', ko: '빠른 습득력'},
+                    {en: 'Team Player', vi: 'Người chơi nhóm', zh: '团队合作者', mn: 'Багаар ажиллагч', ne: 'टोली खेलाडी', ko: '팀워크'},
+                    {en: 'Careful/Detail-oriented', vi: 'Cẩn thận/Chú ý đến chi tiết', zh: '仔细/注重细节', mn: 'Нягт нямбай/Нарийвчлалтай', ne: 'सावधान/विस्तार-उन्मुख', ko: '꼼꼼함/세심함'},
+                    {en: 'Punctual', vi: 'Đúng giờ', zh: '准时', mn: 'Цаг баримталдаг', ne: 'समयनिष्ठ', ko: '시간 엄수'},
+                    {en: 'Reliable', vi: 'Đáng tin cậy', zh: '可靠', mn: 'Найдвартай', ne: 'विश्वसनीय', ko: '신뢰할 수 있음'},
+                    {en: 'Flexible', vi: 'Linh hoạt', zh: '灵活', mn: 'Уян хатан', ne: 'लचिलो', ko: '유연함'},
+                    {en: 'Patient', vi: 'Kiên nhẫn', zh: '有耐心', mn: 'Тэвчээртэй', ne: 'धैर्यवान', ko: '인내심'},
+                    {en: 'Honest', vi: 'Trung thực', zh: '诚实', mn: 'Үнэнч шударга', ne: 'इमानदार', ko: '정직함'},
+                    {en: 'Other', vi: 'Khác', zh: '其他', mn: 'Бусад', ne: 'अन्य', ko: '기타'}
+                ]
+            },
+            {
+                id:'q4',
+                label:{en:'Q4. Preferred work environment (Select all)',vi:'Q4. Môi trường làm việc ưa thích (Chọn tất cả)',zh:'Q4. 首选工作环境（全选）',mn:'Q4. Илүүд үздэг ажлын орчин (Бүгдийг сонгоно уу)',ne:'Q4. मनपर्ने कार्य वातावरण (सबै चयन गर्नुहोस्)',ko:'Q4. 선호하는 근무 환경은? (복수선택)'},
+                badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},
+                options:[
+                    {en: 'Factory/Manufacturing', vi: 'Nhà máy/Sản xuất', zh: '工厂/制造业', mn: 'Үйлдвэр/Үйлдвэрлэл', ne: 'कारखाना/निर्माण', ko: '공장/제조업'},
+                    {en: 'Office Work', vi: 'Công việc văn phòng', zh: '办公室工作', mn: 'Оффисын ажил', ne: 'कार्यालय काम', ko: '사무직'},
+                    {en: 'Outdoor Work', vi: 'Công việc ngoài trời', zh: '户外工作', mn: 'Гадаа ажил', ne: 'बाहिरी काम', ko: '야외 근무'},
+                    {en: 'Shift Work OK', vi: 'Làm việc theo ca OK', zh: '可以轮班', mn: 'Ээлжийн ажил OK', ne: 'सिफ्ट काम ठिक छ', ko: '교대근무 가능'},
+                    {en: 'Night Shift OK', vi: 'Ca đêm OK', zh: '可以夜班', mn: 'Шөнийн ээлж OK', ne: 'नाइट सिफ्ट ठिक छ', ko: '야간근무 가능'},
+                    {en: 'Overtime OK', vi: 'Tăng ca OK', zh: '可以加班', mn: 'Илүү цаг OK', ne: 'ओभरटाइम ठिक छ', ko: '연장근무 가능'},
+                    {en: 'Weekend Work OK', vi: 'Làm cuối tuần OK', zh: '可以周末上班', mn: 'Амралтын өдөр ажиллах OK', ne: 'सप्ताहन्त काम ठिक छ', ko: '주말근무 가능'},
+                    {en: 'Team-based Work', vi: 'Làm việc nhóm', zh: '团队合作', mn: 'Багаар ажиллах', ne: 'टोली-आधारित काम', ko: '팀 단위 업무'},
+                    {en: 'Independent Work', vi: 'Làm việc độc lập', zh: '独立工作', mn: 'Бие даасан ажил', ne: 'स्वतन्त्र काम', ko: '개인 단위 업무'},
+                    {en: 'Other', vi: 'Khác', zh: '其他', mn: 'Бусад', ne: 'अन्य', ko: '기타'}
+                ]
+            },
+            {
+                id:'q5',
+                label:{en:'Q5. Your role in team (Select all)',vi:'Q5. Vai trò trong nhóm (Chọn tất cả)',zh:'Q5. 你在团队中的角色（全选）',mn:'Q5. Багт гүйцэтгэх үүрэг (Бүгдийг сонгоно уу)',ne:'Q5. टोलीमा तपाईंको भूमिका (सबै चयन गर्नुहोस्)',ko:'Q5. 팀에서 역할은? (복수선택)'},
+                badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},
+                options:[
+                    {en: 'Team Leader', vi: 'Trưởng nhóm', zh: '团队主管', mn: 'Багийн ахлагч', ne: 'टोली नेता', ko: '팀 리더'},
+                    {en: 'Worker/Operator', vi: 'Công nhân/Người vận hành', zh: '工人/操作员', mn: 'Ажилчин/Оператор', ne: 'कामदार/अपरेटर', ko: '작업자/오퍼레이터'},
+                    {en: 'Quality Checker', vi: 'Người kiểm tra chất lượng', zh: '质检员', mn: 'Чанар шалгагч', ne: 'गुणस्तर जाँचकर्ता', ko: '품질 검사원'},
+                    {en: 'Helper/Assistant', vi: 'Người phụ/Trợ lý', zh: '助手/助理', mn: 'Туслах ажилтан', ne: 'सहयोगी/सहायक', ko: '보조원/어시스턴트'},
+                    {en: 'Trainer', vi: 'Người đào tạo', zh: '培训师', mn: 'Сургагч', ne: 'प्रशिक्षक', ko: '교육 담당'},
+                    {en: 'Problem Solver', vi: 'Người giải quyết vấn đề', zh: '问题解决者', mn: 'Асуудал шийдэгч', ne: 'समस्या समाधानकर्ता', ko: '문제 해결사'},
+                    {en: 'Translator', vi: 'Phiên dịch viên', zh: '翻译', mn: 'Орчуулагч', ne: 'अनुवादक', ko: '통역'},
+                    {en: 'Other', vi: 'Khác', zh: '其他', mn: 'Бусад', ne: 'अन्य', ko: '기타'}
+                ]
+            },
+            
+            // ... qs object continues ...
+            {
+                id:'q6',
+                label:{en:'Q6. How do you solve problems? (Select all)',vi:'Q6. Bạn giải quyết vấn đề như thế nào? (Chọn tất cả)',zh:'Q6. 你如何解决问题？（全选）',mn:'Q6. Асуудлыг хэрхэн шийддэг вэ? (Бүгдийг сонгоно уу)',ne:'Q6. तपाईं समस्या कसरी समाधान गर्नुहुन्छ? (सबै चयन गर्नुहोस्)',ko:'Q6. 문제 해결 방식은? (복수선택)'},
+                badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},
+                options:[
+                    {en: 'Ask supervisor', vi: 'Hỏi giám sát', zh: '询问主管', mn: 'Ахлагчаас асуух', ne: 'सुपरभाइजरलाई सोध्नुहोस्', ko: '상사에게 질문'},
+                    {en: 'Try myself first', vi: 'Tự thử trước', zh: '自己先尝试', mn: 'Эхлээд өөрөө оролдох', ne: 'पहिले आफै प्रयास गर्नुहोस्', ko: '스스로 먼저 시도'},
+                    {en: 'Discuss with team', vi: 'Thảo luận với nhóm', zh: '与团队讨论', mn: 'Багтайгаа ярилцах', ne: 'टोलीसँग छलफल गर्नुहोस्', ko: '팀과 논의'},
+                    {en: 'Follow manual/procedure', vi: 'Theo hướng dẫn/quy trình', zh: '遵循手册/程序', mn: 'Гарын авлага/журмыг дагах', ne: 'म्यानुअल/प्रक्रिया पालना गर्नुहोस्', ko: '매뉴얼/절차 따르기'},
+                    {en: 'Use experience', vi: 'Sử dụng kinh nghiệm', zh: '运用经验', mn: 'Туршлагаа ашиглах', ne: 'अनुभव प्रयोग गर्नुहोस्', ko: '경험 활용'},
+                    {en: 'Learn from others', vi: 'Học hỏi từ người khác', zh: '向他人学习', mn: 'Бусдаас суралцах', ne: 'अरूबाट सिक्नुहोस्', ko: '다른 사람에게 배우기'},
+                    {en: 'Search online', vi: 'Tìm kiếm trực tuyến', zh: '上网搜索', mn: 'Онлайнаар хайх', ne: 'अनलाइन खोज्नुहोस्', ko: '온라인 검색'},
+                    {en: 'Other', vi: 'Khác', zh: '其他', mn: 'Бусад', ne: 'अन्य', ko: '기타'}
+                ]
+            },
+            {
+                id:'q7',
+                label:{en:'Q7. Your achievement/success (Select all)',vi:'Q7. Thành tích/thành công (Chọn tất cả)',zh:'Q7. 你的成就/成功（全选）',mn:'Q7. Таны амжилт/ололт (Бүгдийг сонгоно уу)',ne:'Q7. तपाईंको उपलब्धि/सफलता (सबै चयन गर्नुहोस्)',ko:'Q7. 성과/성공 경험은? (복수선택)'},
+                badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},
+                options:[
+                    {en: 'Perfect attendance', vi: 'Chuyên cần hoàn hảo', zh: '全勤', mn: 'Ирц бүрэн', ne: 'पूर्ण उपस्थिति', ko: '개근'},
+                    {en: 'Quality award', vi: 'Giải thưởng chất lượng', zh: '质量奖', mn: 'Чанарын шагнал', ne: 'गुणस्तर पुरस्कार', ko: '품질상'},
+                    {en: 'Productivity improvement', vi: 'Cải thiện năng suất', zh: '生产力提高', mn: 'Бүтээмж дээшлүүлсэн', ne: 'उत्पादकत्व सुधार', ko: '생산성 향상'},
+                    {en: 'Safety record', vi: 'Hồ sơ an toàn', zh: '安全记录', mn: 'Аюулгүй ажиллагааны бүртгэл', ne: 'सुरक्षा रेकर्ड', ko: '안전 기록 (무사고)'},
+                    {en: 'Team leader promotion', vi: 'Thăng chức trưởng nhóm', zh: '晋升组长', mn: 'Багийн ахлагчаар дэвшсэн', ne: 'टोली नेता पदोन्नति', ko: '팀 리더 승진'},
+                    {en: 'Skill certification', vi: 'Chứng chỉ kỹ năng', zh: '技能认证', mn: 'Мэргэшлийн гэрчилгээ', ne: 'सीप प्रमाणीकरण', ko: '자격증 취득'},
+                    {en: 'Salary increase', vi: 'Tăng lương', zh: '加薪', mn: 'Цалин нэмэгдсэн', ne: ' तलब वृद्धि', ko: '급여 인상'},
+                    {en: 'Employee of the month', vi: 'Nhân viên của tháng', zh: '月度最佳员工', mn: 'Сарын шилдэг ажилтан', ne: 'महिनाको कर्मचारी', ko: '이달의 사원'},
+                    {en: 'Other', vi: 'Khác', zh: '其他', mn: 'Бусад', ne: 'अन्य', ko: '기타'}
+                ]
+            },
+            {
+                id:'q8',
+                label:{en:'Q8. Communication style (Select all)',vi:'Q8. Phong cách giao tiếp (Chọn tất cả)',zh:'Q8. 沟通风格（全选）',mn:'Q8. Харилцааны хэв маяг (Бүгдийг сонгоно уу)',ne:'Q8. संचार शैली (सबै चयन गर्नुहोस्)',ko:'Q8. 의사소통 스타일은? (복수선택)'},
+                badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},
+                options:[
+                    {en: 'Direct/Clear', vi: 'Trực tiếp/Rõ ràng', zh: '直接/清晰', mn: 'Шууд/Тодорхой', ne: 'प्रत्यक्ष/स्पष्ट', ko: '직접적/명확함'},
+                    {en: 'Listen carefully', vi: 'Lắng nghe cẩn thận', zh: '仔细聆听', mn: 'Анхааралтай сонсох', ne: 'ध्यान दिएर सुन्नुहोस्', ko: '경청하기'},
+                    {en: 'Follow instructions', vi: 'Tuân theo hướng dẫn', zh: '遵从指示', mn: 'Заавар дагах', ne: ' निर्देशनहरू पालना गर्नुहोस्', ko: '지시사항 준수'},
+                    {en: 'Ask questions when unsure', vi: 'Hỏi khi không chắc chắn', zh: '不确定时提问', mn: 'Ойлгохгүй бол асуух', ne: 'निश्चित नहुँदा प्रश्न सोध्नुहोस्', ko: '모르면 질문하기'},
+                    {en: 'Visual/Show me', vi: 'Trực quan/Cho tôi xem', zh: '视觉/给我看', mn: 'Харж/Үзүүлж ойлгох', ne: 'भिजुअल/मलाई देखाउनुहोस्', ko: '시각적/보여주기'},
+                    {en: 'Written notes', vi: 'Ghi chú bằng văn bản', zh: '书面笔记', mn: 'Бичгэн тэмдэглэл', ne: 'लिखित नोटहरू', ko: '서면 메모'},
+                    {en: 'Use translation app', vi: 'Sử dụng ứng dụng dịch', zh: '使用翻译应用', mn: 'Орчуулгын апп ашиглах', ne: 'अनुवाद एप प्रयोग गर्नुहोस्', ko: '번역 앱 사용'},
+                    {en: 'Other', vi: 'Khác', zh: '其他', mn: 'Бусад', ne: 'अन्य', ko: '기타'}
+                ]
+            },
+            {
+                id:'q9',
+                label:{en:'Q9. Which Korean industry interests you? (Select all)',vi:'Q9. Ngành công nghiệp Hàn Quốc nào bạn quan tâm? (Chọn tất cả)',zh:'Q9. 你对哪个韩国行业感兴趣？（全选）',mn:'Q9. Солонгосын аль салбар сонирхож байна? (Бүгдийг сонгоно уу)',ne:'Q9. तपाईंलाई कुन कोरियाली उद्योगमा रुचि छ? (सबै चयन गर्नुहोस्)',ko:'Q9. 관심 있는 한국 산업은? (복수선택)'},
+                badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},
+                options:[
+                    {en: 'Electronics (Samsung, LG)', vi: 'Điện tử (Samsung, LG)', zh: '电子 (三星, LG)', mn: 'Электроник (Samsung, LG)', ne: 'इलेक्ट्रोनिक्स (Samsung, LG)', ko: '전자 (삼성, LG)'},
+                    {en: 'Automotive (Hyundai, Kia)', vi: 'Ô tô (Hyundai, Kia)', zh: '汽车 (现代, 起亚)', mn: 'Автомашин (Hyundai, Kia)', ne: 'अटोमोटिभ (Hyundai, Kia)', ko: '자동차 (현대, 기아)'},
+                    {en: 'Shipbuilding', vi: 'Đóng tàu', zh: '造船', mn: 'Усан онгоцны үйлдвэрлэл', ne: 'जहाज निर्माण', ko: '조선'},
+                    {en: 'Steel/Metal', vi: 'Thép/Kim loại', zh: '钢铁/金属', mn: 'Ган/Металл', ne: 'स्टील/धातु', ko: '철강/금속'},
+                    {en: 'Construction', vi: 'Xây dựng', zh: '建筑', mn: 'Барилга', ne: 'निर्माण', ko: '건설'},
+                    {en: 'Food/Beverage', vi: 'Thực phẩm/Đồ uống', zh: '食品/饮料', mn: 'Хүнс/Ундаа', ne: 'खाद्य/पेय', ko: '식음료'},
+                    {en: 'Textiles/Fashion', vi: 'Dệt may/Thời trang', zh: '纺织/时尚', mn: 'Нэхмэл/Загвар', ne: 'कपडा/फेसन', ko: '섬유/패션'},
+                    {en: 'Plastics/Rubber', vi: 'Nhựa/Cao su', zh: '塑料/橡胶', mn: 'Хуванцар/Резин', ne: 'प्लास्टिक/रबर', ko: '플라스틱/고무'},
+                    {en: 'Other', vi: 'Khác', zh: '其他', mn: 'Бусад', ne: 'अन्य', ko: '기타'}
+                ]
+            },
+            {
+                id:'q10',
+                label:{en:'Q10. Your goal in Korea - next 3 years (Select all)',vi:'Q10. Mục tiêu tại Hàn Quốc - 3 năm tới (Chọn tất cả)',zh:'Q10. 你在韩国的目标 - 未来3年（全选）',mn:'Q10. Солонгос дахь зорилго - дараагийн 3 жил (Бүгдийг сонгоно уу)',ne:'Q10. कोरियामा तपाईंको लक्ष्य - अर्को ३ वर्ष (सबै चयन गर्नुहोस्)',ko:'Q10. 한국에서 향후 3년 목표는? (복수선택)'},
+                badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},
+                options:[
+                    {en: 'Save money for family', vi: 'Tiết kiệm tiền cho gia đình', zh: '为家人存钱', mn: 'Гэр бүлдээ мөнгө хураах', ne: 'परिवारको लागि पैसा बचत गर्नुहोस्', ko: '가족을 위해 저축'},
+                    {en: 'Learn advanced skills', vi: 'Học kỹ năng nâng cao', zh: '学习高级技能', mn: 'Дэвшилтэт ур чадвар сурах', ne: 'उन्नत सीपहरू सिक्नुहोस्', ko: '고급 기술 습득'},
+                    {en: 'Get certification', vi: 'Lấy chứng chỉ', zh: '获得认证', mn: 'Гэрчилгээ авах', ne: 'प्रमाणीकरण प्राप्त गर्नुहोस्', ko: '자격증 취득'},
+                    {en: 'Become team leader', vi: 'Trở thành trưởng nhóm', zh: '成为团队主管', mn: 'Багийн ахлагч болох', ne: 'टोली नेता बन्नुहोस्', ko: '팀 리더 되기'},
+                    {en: 'Stable long-term job', vi: 'Công việc ổn định lâu dài', zh: '稳定的长期工作', mn: 'Тогтвортой урт хугацааны ажил', ne: 'स्थिर दीर्घकालीन जागिर', ko: '안정적인 장기 근무'},
+                    {en: 'Return home with experience', vi: 'Về nước với kinh nghiệm', zh: '带经验回国', mn: 'Туршлагатай нутаг буцах', ne: 'अनुभव लिएर घर फर्कनुहोस्', ko: '경험 쌓고 귀국'},
+                    {en: 'Start own business later', vi: 'Sau này tự kinh doanh', zh: '以后自己创业', mn: 'Дараа нь өөрийн бизнесээ эхлүүлэх', ne: 'पछि आफ्नै व्यवसाय सुरु गर्नुहोस्', ko: '나중에 창업'},
+                    {en: 'Bring family to Korea', vi: 'Đưa gia đình sang Hàn Quốc', zh: '带家人来韩国', mn: 'Гэр бүлээ Солонгост авчрах', ne: 'परिवारलाई कोरिया ल्याउनुहोस्', ko: '가족 초청'},
+                    {en: 'Other', vi: 'Khác', zh: '其他', mn: 'Бусад', ne: 'अन्य', ko: '기타'}
+                ]
+            }
         ];
         
         let selections = {};
@@ -391,7 +553,7 @@
                 }
             });
 
-            // **수정됨:** 언어별 플레이스홀더(예시) 업데이트
+            // Update placeholders
             document.getElementById('name').placeholder = placeholders.name[lang];
             document.getElementById('age').placeholder = placeholders.age[lang];
             document.getElementById('nationality').placeholder = placeholders.nationality[lang];
@@ -405,21 +567,29 @@
             render();
         }
         
+        // **수정됨:** render() 함수가 6개 국어 객체를 처리하도록 수정
         function render() {
             const c = document.getElementById('survey-container');
-            if (!c) return; // survey-container가 없으면 종료
+            if (!c) return; 
             
             let h = '';
             
+            // mfg (제조업) 질문 렌더링
             h += `<div class="p-5 border-2 border-green-500 rounded-lg bg-green-50">
                 <div class="flex items-center mb-2">
                     <label class="form-label font-bold text-green-900 text-base mb-0">${mfg.label[currentLang]}</label>
                     <span class="multiple-badge">${mfg.badge[currentLang]}</span>
                 </div>
                 <div class="flex flex-wrap gap-2 mt-3">`;
-            mfg.options.forEach(o => h += `<label class="checkbox-label"><input type="checkbox" name="${mfg.id}" value="${o}"><span>${o}</span></label>`);
+            
+            // options 배열 (객체) 순회
+            mfg.options.forEach(o => {
+                // value는 영어(o.en)로 고정, <span> 태그 안의 텍스트만 현재 언어(o[currentLang])로 표시
+                h += `<label class="checkbox-label"><input type="checkbox" name="${mfg.id}" value="${o.en}"><span>${o[currentLang]}</span></label>`;
+            });
             h += `</div></div>`;
             
+            // qs (q1-q10) 질문 렌더링
             qs.forEach(q => {
                 h += `<div class="p-4 border border-gray-300 rounded-lg bg-white">
                     <div class="flex items-center mb-2">
@@ -427,16 +597,22 @@
                         <span class="multiple-badge">${q.badge[currentLang]}</span>
                     </div>
                     <div class="flex flex-wrap gap-2 mt-2">`;
-                q.options.forEach(o => h += `<label class="checkbox-label"><input type="checkbox" name="${q.id}" value="${o}"><span>${o}</span></label>`);
+                
+                // options 배열 (객체) 순회
+                q.options.forEach(o => {
+                    // value는 영어(o.en)로 고정, <span> 태그 안의 텍스트만 현재 언어(o[currentLang])로 표시
+                    h += `<label class="checkbox-label"><input type="checkbox" name="${q.id}" value="${o.en}"><span>${o[currentLang]}</span></label>`;
+                });
                 h += `</div></div>`;
             });
             
             c.innerHTML = h;
             
+            // 체크박스 이벤트 리스너 (이 부분은 수정할 필요 없음)
             document.querySelectorAll('.checkbox-label input').forEach(cb => {
                 cb.addEventListener('change', function() {
                     const qid = this.name;
-                    const val = this.value;
+                    const val = this.value; // 'o.en' (영어) 값이 저장됨
                     if (!selections[qid]) selections[qid] = [];
                     const idx = selections[qid].indexOf(val);
                     if (this.checked && idx === -1) selections[qid].push(val);
@@ -461,10 +637,11 @@
                 education: document.getElementById('education').value.trim(),
                 sentence: document.getElementById('sentence').value.trim(),
                 workExperience: document.getElementById('workExperience').value.trim(),
-                selections: selections
+                selections: selections // 여기에는 항상 영어 선택지가 저장됨
             };
         }
         
+        // generatePrompt 함수는 수정할 필요 없음 (항상 영어로 된 selections를 받음)
         function generatePrompt(d) {
             const visaInfo = d.e7visa === 'Yes' ? `Yes (Valid: ${d.visaPeriod})` : 'No';
             
@@ -483,7 +660,7 @@
 - **Work History:** ${d.workExperience || 'N/A'}
 
 ## COMPREHENSIVE SKILLS ASSESSMENT
-${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**${k}:** ${d.selections[k].join(', ')}`).join('\n')}
+${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**${k.replace('q_', 'Manufacturing_')}:** ${d.selections[k].join(', ')}`).join('\n')}
 
 ---
 
@@ -541,7 +718,7 @@ Recommend **5-7 Korean companies**:
 - **경력 사항:** ${d.workExperience || '정보 없음'}
 
 ## 종합 기술 평가
-${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**${k}:** ${d.selections[k].join(', ')}`).join('\n')}
+${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**${k.replace('q_', '제조업_')}:** ${d.selections[k].join(', ')}`).join('\n')}
 
 ---
 
@@ -786,7 +963,6 @@ ${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**
             const applyBtn = document.getElementById('apply-btn');
             if (applyBtn) applyBtn.addEventListener('click', submitData);
 
-            // **수정됨:** 모달 닫기 버튼 로직 수정 (새로고침 확인 제거)
             const closeBtn = document.getElementById('modal-close-btn');
             if (closeBtn) {
                 closeBtn.addEventListener('click', () => {
