@@ -7,59 +7,122 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        html{scroll-behavior:smooth}body{font-family:'Noto Sans KR','Poppins',Arial,sans-serif;background:#f0f4f8;color:#1f2937}.font-poppins{font-family:'Poppins',sans-serif}.hero-gradient{background:linear-gradient(135deg,#4f46e5 0%,#06b6d4 100%)}.form-card{background:white;border-radius:1rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.05);margin-top:-5rem;z-index:10;position:relative}.form-label{font-weight:600;color:#374151;margin-bottom:0.5rem;display:block;font-size:0.9rem}input,select,textarea{width:100%;border-radius:0.5rem;border:1px solid #d1d5db;padding:0.75rem;background:#f9fafb;font-size:1rem}input:focus,select:focus,textarea:focus{outline:none;border-color:#4f46e5;box-shadow:0 0 0 3px rgba(79,70,229,0.2)}.checkbox-label{display:inline-block;background:#f3f4f6;border:1px solid #d1d5db;padding:0.5rem 1rem;border-radius:9999px;font-size:0.9rem;cursor:pointer;transition:all 0.2s;margin:0.25rem}.checkbox-label input{display:none}.checkbox-label:hover{background:#e5e7eb}.checkbox-label input:checked+span{background:#3b82f6;color:white;border-color:#3b82f6;font-weight:500}.cta-button{display:inline-block;font-weight:700;font-size:1rem;border-radius:9999px;padding:0.75rem 2rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);border:none;cursor:pointer;transition:all 0.2s}.cta-button:hover{transform:scale(1.03)}.cta-button:disabled{opacity:0.6;cursor:not-allowed}.section-heading{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:700;color:#111827;border-bottom:2px solid #4f46e5;padding-bottom:0.5rem;margin-bottom:1.5rem}.modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center}.modal-content{background:#fff;margin:auto;padding:2rem;width:90%;max-width:600px;border-radius:1rem;text-align:center;transform:scale(0.95);opacity:0;transition:all 0.3s}.modal.show{display:flex}.modal.show .modal-content{transform:scale(1);opacity:1}#toast{position:fixed;top:20px;right:20px;background:#28a745;color:white;padding:1rem 1.5rem;border-radius:0.5rem;z-index:2000;opacity:0;transition:opacity 0.3s;font-weight:500}#toast.show{opacity:1}.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-radius:50%;border-top-color:white;animation:spin 0.6s linear infinite;margin-right:0.5rem}@keyframes spin{to{transform:rotate(360deg)}}.progress-bar{height:10px;background:#e5e7eb;border-radius:5px;overflow:hidden}.progress-fill{height:100%;background:linear-gradient(90deg,#4f46e5,#06b6d4);transition:width 0.3s}.multiple-badge{display:inline-block;background:#10b981;color:white;font-size:0.75rem;padding:0.25rem 0.5rem;border-radius:0.25rem;font-weight:600;margin-left:0.5rem}.lang-btn{border:1px solid rgba(255,255,255,0.5);padding:0.5rem 1rem;border-radius:999px;font-size:0.875rem;color:rgba(255,255,255,0.8);background:transparent;cursor:pointer;transition:all 0.2s;margin:0 0.25rem}.lang-btn.active{background-color:white;color:#4f46e5;font-weight:600;border-color:white}.process-section{padding:4rem 1.5rem;background:#f9fafb}.process-container{max-width:900px;margin:0 auto}.process-title{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:700;color:#111827;margin-bottom:1rem;text-align:center}.process-desc{font-size:1.125rem;color:#6b7280;line-height:1.6;text-align:center;margin-bottom:3rem}.step-card{background:white;border-radius:1rem;padding:1.5rem;box-shadow:0 4px 12px rgba(0,0,0,0.08);display:flex;align-items:center;gap:1.5rem;border-left:4px solid;transition:transform 0.3s,box-shadow 0.3s;margin-bottom:1.5rem}.step-card:hover{transform:translateY(-5px);box-shadow:0 12px 24px rgba(0,0,0,0.12)}.step-1{border-color:#3b82f6}.step-2{border-color:#8b5cf6}.step-3{border-color:#10b981}.step-4{border-color:#f59e0b}.step-icon{width:3.5rem;height:3.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.75rem;color:white;flex-shrink:0}.icon-1{background:#3b82f6}.icon-2{background:#8b5cf6}.icon-3{background:#10b981}.icon-4{background:#f59e0b}.step-content{flex:1}.step-title{font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:700;color:#111827;margin-bottom:0.5rem}.step-desc{font-size:1rem;color:#6b7280;line-height:1.5}@media (max-width:768px){.step-card{flex-direction:column;text-align:center}}
+        html{scroll-behavior:smooth}body{font-family:'Noto Sans KR','Poppins',Arial,sans-serif;background:#f0f4f8;color:#1f2937}.font-poppins{font-family:'Poppins',sans-serif}.hero-gradient{background:linear-gradient(135deg,#4f46e5 0%,#06b6d4 100%)}.form-card{background:white;border-radius:1rem;padding:2rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.05);margin-top:-5rem;z-index:10;position:relative}.form-label{font-weight:600;color:#374151;margin-bottom:0.5rem;display:block;font-size:0.9rem}input,select,textarea{width:100%;border-radius:0.5rem;border:1px solid #d1d5db;padding:0.75rem;background:#f9fafb;font-size:1rem}input:focus,select:focus,textarea:focus{outline:none;border-color:#4f46e5;box-shadow:0 0 0 3px rgba(79,70,229,0.2)}.checkbox-label{display:inline-block;background:#f3f4f6;border:1px solid #d1d5db;padding:0.5rem 1rem;border-radius:9999px;font-size:0.9rem;cursor:pointer;transition:all 0.2s;margin:0.25rem}.checkbox-label input{display:none}.checkbox-label:hover{background:#e5e7eb}.checkbox-label input:checked+span{background:#3b82f6;color:white;border-color:#3b82f6;font-weight:500}.cta-button{display:inline-block;font-weight:700;font-size:1rem;border-radius:9999px;padding:0.75rem 2rem;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);border:none;cursor:pointer;transition:all 0.2s}.cta-button:hover{transform:scale(1.03)}.cta-button:disabled{opacity:0.6;cursor:not-allowed}.section-heading{font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:700;color:#111827;border-bottom:2px solid #4f46e5;padding-bottom:0.5rem;margin-bottom:1.5rem}.modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center}.modal-content{background:#fff;margin:auto;padding:2rem;width:90%;max-width:600px;border-radius:1rem;text-align:center;transform:scale(0.95);opacity:0;transition:all 0.3s}.modal.show{display:flex}.modal.show .modal-content{transform:scale(1);opacity:1}#toast{position:fixed;top:20px;right:20px;background:#28a745;color:white;padding:1rem 1.5rem;border-radius:0.5rem;z-index:2000;opacity:0;transition:opacity 0.3s;font-weight:500}#toast.show{opacity:1}.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,0.3);border-radius:50%;border-top-color:white;animation:spin 0.6s linear infinite;margin-right:0.5rem}@keyframes spin{to{transform:rotate(360deg)}}.progress-bar{height:10px;background:#e5e7eb;border-radius:5px;overflow:hidden}.progress-fill{height:100%;background:linear-gradient(90deg,#4f46e5,#06b6d4);transition:width 0.3s}.multiple-badge{display:inline-block;background:#10b981;color:white;font-size:0.75rem;padding:0.25rem 0.5rem;border-radius:0.25rem;font-weight:600;margin-left:0.5rem}.lang-btn{border:1px solid rgba(255,255,255,0.5);padding:0.5rem 1rem;border-radius:9999px;font-size:0.875rem;color:rgba(255,255,255,0.8);background:transparent;cursor:pointer;transition:all 0.2s;margin:0 0.25rem}.lang-btn.active{background-color:white;color:#4f46e5;font-weight:600;border-color:white}.process-section{padding:4rem 1.5rem;background:#f9fafb}.process-container{max-width:900px;margin:0 auto}.process-title{font-family:'Poppins',sans-serif;font-size:2rem;font-weight:700;color:#111827;margin-bottom:1rem;text-align:center}.process-desc{font-size:1.125rem;color:#6b7280;line-height:1.6;text-align:center;margin-bottom:3rem}.step-card{background:white;border-radius:1rem;padding:1.5rem;box-shadow:0 4px 12px rgba(0,0,0,0.08);display:flex;align-items:center;gap:1.5rem;border-left:4px solid;transition:transform 0.3s,box-shadow 0.3s;margin-bottom:1.5rem}.step-card:hover{transform:translateY(-5px);box-shadow:0 12px 24px rgba(0,0,0,0.12)}.step-1{border-color:#3b82f6}.step-2{border-color:#8b5cf6}.step-3{border-color:#10b981}.step-4{border-color:#f59e0b}.step-icon{width:3.5rem;height:3.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.75rem;color:white;flex-shrink:0}.icon-1{background:#3b82f6}.icon-2{background:#8b5cf6}.icon-3{background:#10b981}.icon-4{background:#f59e0b}.step-content{flex:1}.step-title{font-family:'Poppins',sans-serif;font-size:1.25rem;font-weight:700;color:#111827;margin-bottom:0.5rem}.step-desc{font-size:1rem;color:#6b7280;line-height:1.5}.hero-title{font-family:'Poppins',sans-serif;font-size:2.5rem;font-weight:800;line-height:1.2;margin-bottom:1.5rem}@media (min-width:768px){.hero-title{font-size:3rem}}.hero-subtitle{font-size:1.125rem;line-height:1.6;color:rgba(224,231,255,0.95);max-width:800px;margin:0 auto 2.5rem}@media (max-width:768px){.step-card{flex-direction:column;text-align:center}}
     </style>
 </head>
 <body>
     <header class="hero-gradient text-white shadow-md">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="font-poppins font-bold text-2xl">🌏 AI HR Generator</div>
-            <div class="flex gap-2">
+            <div class="flex gap-2 flex-wrap">
                 <button id="lang-en" class="lang-btn active">English</button>
+                <button id="lang-vi" class="lang-btn">Tiếng Việt</button>
+                <button id="lang-zh" class="lang-btn">中文</button>
+                <button id="lang-mn" class="lang-btn">Монгол</button>
+                <button id="lang-ne" class="lang-btn">नेपाली</button>
                 <button id="lang-ko" class="lang-btn">한국어</button>
             </div>
         </nav>
         <div class="container mx-auto px-6 pt-10 pb-20 text-center">
-            <h1 class="font-poppins text-4xl md:text-5xl font-extrabold" data-en="AI-Powered HR Documents" data-ko="AI 기반 HR 문서 자동 생성">AI-Powered HR Documents</h1>
-            <p class="mt-4 text-lg max-w-3xl mx-auto text-indigo-100" data-en="For Foreign Workers in Korea. Answer simple questions, and AI will build your professional profile." data-ko="한국 내 외국인 근로자를 위한 AI HR 솔루션. 간단한 질문에 답하면 AI가 전문 프로필을 생성합니다.">For Foreign Workers in Korea. Answer simple questions, and AI will build your professional profile.</p>
+            <h1 class="hero-title" data-en="AI-Powered HR Documents" data-vi="Tài liệu HR do AI tạo" data-zh="AI驱动的人力资源文件" data-mn="AI-ээр ажилладаг HR баримт бичиг" data-ne="AI-संचालित HR कागजातहरू" data-ko="AI 기반 HR 문서 자동 생성">AI-Powered HR Documents</h1>
+            <p class="hero-subtitle" data-en="For Foreign Workers in Korea. Answer simple questions, and AI will build your professional profile." data-vi="Dành cho Lao động nước ngoài tại Hàn Quốc. Trả lời câu hỏi đơn giản và AI sẽ tạo hồ sơ chuyên nghiệp cho bạn." data-zh="为在韩外国劳工服务。回答简单问题，AI将为您创建专业档案。" data-mn="Солонгост ажиллаж буй гадаадын ажилчдад зорилав. Энгийн асуултуудад хариулаад AI таны мэргэжлийн профайлыг бүтээнэ." data-ne="कोरियामा विदेशी कामदारहरूका लागि। सरल प्रश्नहरूको जवाफ दिनुहोस्, र AI ले तपाईंको व्यावसायिक प्रोफाइल बनाउनेछ।" data-ko="한국 내 외국인 근로자를 위한 AI HR 솔루션. 간단한 질문에 답하면 AI가 전문 프로필을 생성합니다.">For Foreign Workers in Korea. Answer simple questions, and AI will build your professional profile.</p>
         </div>
     </header>
 
-    <!-- How It Works Section -->
     <section class="process-section">
         <div class="process-container">
-            <h2 class="process-title" data-en="How It Works: The 4-Step AI Process" data-ko="AI 원패스: 4단계 작동 방식">How It Works: The 4-Step AI Process</h2>
-            <p class="process-desc" data-en="Our AI handles the entire process, from application to final documentation." data-ko="AI가 지원서 작성부터 최종 문서화까지 모든 과정을 처리합니다.">Our AI handles the entire process, from application to final documentation.</p>
+            <h2 class="process-title" 
+                data-en="How It Works: The 4-Step AI Process" 
+                data-vi="Cách thức hoạt động: Quy trình AI 4 bước" 
+                data-zh="工作原理：4步AI流程" 
+                data-mn="Хэрхэн ажилладаг вэ: 4 алхамт AI процесс" 
+                data-ne="यसले कसरी काम गर्छ: ४-चरणको AI प्रक्रिया" 
+                data-ko="AI 원패스: 4단계 작동 방식">How It Works: The 4-Step AI Process</h2>
+            <p class="process-desc" 
+                data-en="Our AI handles the entire process, from application to final documentation." 
+                data-vi="AI của chúng tôi xử lý toàn bộ quy trình, từ ứng tuyển đến tài liệu cuối cùng." 
+                data-zh="我们的AI处理从申请到最终文件的整个过程。" 
+                data-mn="Манай AI нь өргөдөл гаргахаас эхлээд эцсийн баримт бичиг хүртэлх бүх үйл явцыг хариуцдаг." 
+                data-ne="हाम्रो AI ले आवेदनदेखि अन्तिम कागजातसम्मको सम्पूर्ण प्रक्रिया ह्यान्डल गर्छ।" 
+                data-ko="AI가 지원서 작성부터 최종 문서화까지 모든 과정을 처리합니다.">Our AI handles the entire process, from application to final documentation.</p>
             
             <div class="step-card step-1">
                 <div class="step-icon icon-1">1️⃣</div>
                 <div class="step-content">
-                    <h3 class="step-title" data-en="Step 1: Fill Out Your Profile" data-ko="1단계: 프로필 작성하기">Step 1: Fill Out Your Profile</h3>
-                    <p class="step-desc" data-en="Enter your personal info, work history, and skills using our simple form." data-ko="간단한 양식을 사용하여 개인 정보, 경력 및 기술을 입력합니다.">Enter your personal info, work history, and skills using our simple form.</p>
+                    <h3 class="step-title" 
+                        data-en="Step 1: Fill Out Your Profile" 
+                        data-vi="Bước 1: Điền hồ sơ của bạn" 
+                        data-zh="第1步：填写您的个​​人资料" 
+                        data-mn="Алхам 1: Профайлаа бөглөнө үү" 
+                        data-ne="चरण १: आफ्नो प्रोफाइल भर्नुहोस्" 
+                        data-ko="1단계: 프로필 작성하기">Step 1: Fill Out Your Profile</h3>
+                    <p class="step-desc" 
+                        data-en="Enter your personal info, work history, and skills using our simple form." 
+                        data-vi="Nhập thông tin cá nhân, lịch sử làm việc và kỹ năng của bạn bằng biểu mẫu đơn giản của chúng tôi." 
+                        data-zh="使用我们的简单表格输入您的个​​人信息、工作经历和技能。" 
+                        data-mn="Манай энгийн маягтыг ашиглан хувийн мэдээлэл, ажлын түүх, ур чадвараа оруулна уу." 
+                        data-ne="हाम्रो सरल फारम प्रयोग गरी आफ्नो व्यक्तिगत जानकारी, कार्य इतिहास, र सीपहरू प्रविष्ट गर्नुहोस्।" 
+                        data-ko="간단한 양식을 사용하여 개인 정보, 경력 및 기술을 입력합니다.">Enter your personal info, work history, and skills using our simple form.</p>
                 </div>
             </div>
 
             <div class="step-card step-2">
                 <div class="step-icon icon-2">2️⃣</div>
                 <div class="step-content">
-                    <h3 class="step-title" data-en="Step 2: AI Generates Documents" data-ko="2단계: AI 문서 생성">Step 2: AI Generates Documents</h3>
-                    <p class="step-desc" data-en="Click 'Generate' and our AI instantly creates a professional HR document based on your answers." data-ko="'생성하기'를 클릭하면 AI가 답변을 기반으로 전문 HR 문서를 즉시 생성합니다.">Click "Generate" and our AI instantly creates a professional HR document based on your answers.</p>
+                    <h3 class="step-title" 
+                        data-en="Step 2: AI Generates Documents" 
+                        data-vi="Bước 2: AI tạo tài liệu" 
+                        data-zh="第2步：AI生成文件" 
+                        data-mn="Алхам 2: AI баримт бичиг үүсгэх" 
+                        data-ne="चरण २: AI ले कागजातहरू उत्पन्न गर्छ" 
+                        data-ko="2단계: AI 문서 생성">Step 2: AI Generates Documents</h3>
+                    <p class="step-desc" 
+                        data-en="Click 'Generate' and our AI instantly creates a professional HR document based on your answers." 
+                        data-vi="Nhấp vào 'Tạo' và AI của chúng tôi sẽ ngay lập tức tạo một tài liệu HR chuyên nghiệp dựa trên câu trả lời của bạn." 
+                        data-zh="点击“生成”，我们的AI会根据您的回答立即创建专业的人力资源文件。" 
+                        data-mn="'Үүсгэх' товчийг дарснаар манай AI таны хариултад үндэслэн мэргэжлийн HR баримт бичгийг шууд үүсгэнэ." 
+                        data-ne="'Generate' मा क्लिक गर्नुहोस् र हाम्रो AI ले तपाईंको जवाफको आधारमा तुरुन्तै एक पेशेवर HR कागजात सिर्जना गर्नेछ।" 
+                        data-ko="'생성하기'를 클릭하면 AI가 답변을 기반으로 전문 HR 문서를 즉시 생성합니다.">Click "Generate" and our AI instantly creates a professional HR document based on your answers.</p>
                 </div>
             </div>
 
             <div class="step-card step-3">
                 <div class="step-icon icon-3">3️⃣</div>
                 <div class="step-content">
-                    <h3 class="step-title" data-en="Step 3: Submit & Save" data-ko="3단계: 제출 및 저장">Step 3: Submit & Save</h3>
-                    <p class="step-desc" data-en="Your document is saved to our secure database, and a Google Doc is created for you." data-ko="문서가 보안 데이터베이스에 저장되고 Google Docs 문서가 생성됩니다.">Your document is saved to our secure database, and a Google Doc is created for you.</p>
+                    <h3 class="step-title" 
+                        data-en="Step 3: Submit & Save" 
+                        data-vi="Bước 3: Gửi & Lưu" 
+                        data-zh="第3步：提交并保存" 
+                        data-mn="Алхам 3: Илгээх & Хадгалах" 
+                        data-ne="चरण ३: पेश गर्नुहोस् र बचत गर्नुहोस्" 
+                        data-ko="3단계: 제출 및 저장">Step 3: Submit & Save</h3>
+                    <p class="step-desc" 
+                        data-en="Your document is saved to our secure database, and a Google Doc is created for you." 
+                        data-vi="Tài liệu của bạn được lưu vào cơ sở dữ liệu an toàn của chúng tôi và một tài liệu Google Docs được tạo cho bạn." 
+                        data-zh="您的文件将保存到我们的安全数据库中，并为您创建一个Google文档。" 
+                        data-mn="Таны баримт бичиг манай аюулгүй мэдээллийн санд хадгалагдаж, танд зориулж Google Doc үүсгэгдэнэ." 
+                        data-ne="तपाईंको कागजात हाम्रो सुरक्षित डाटाबेसमा सुरक्षित हुन्छ, र तपाईंको लागि Google Doc सिर्जना गरिन्छ।" 
+                        data-ko="문서가 보안 데이터베이스에 저장되고 Google Docs 문서가 생성됩니다.">Your document is saved to our secure database, and a Google Doc is created for you.</p>
                 </div>
             </div>
 
             <div class="step-card step-4">
                 <div class="step-icon icon-4">4️⃣</div>
                 <div class="step-content">
-                    <h3 class="step-title" data-en="Step 4: Get Job Matches" data-ko="4단계: 취업 매칭">Step 4: Get Job Matches</h3>
-                    <p class="step-desc" data-en="Our team uses your AI-powered document to match you with the best companies in Korea." data-ko="저희 팀이 AI 문서를 활용하여 당신에게 꼭 맞는 한국 기업을 매칭합니다.">Our team uses your AI-powered document to match you with the best companies in Korea.</p>
+                    <h3 class="step-title" 
+                        data-en="Step 4: Get Job Matches" 
+                        data-vi="Bước 4: Nhận kết quả phù hợp công việc" 
+                        data-zh="第4步：获得工作匹配" 
+                        data-mn="Алхам 4: Ажлын тааруулалт авах" 
+                        data-ne="चरण ४: जागिर मिलाउनुहोस्" 
+                        data-ko="4단계: 취업 매칭">Step 4: Get Job Matches</h3>
+                    <p class="step-desc" 
+                        data-en="Our team uses your AI-powered document to match you with the best companies in Korea." 
+                        data-vi="Đội ngũ của chúng tôi sử dụng tài liệu do AI cung cấp của bạn để kết nối bạn với các công ty tốt nhất tại Hàn Quốc." 
+                        data-zh="我们的团队使用您的AI文件为您匹配韩国最适合的公司。" 
+                        data-mn="Манай баг таны AI-д суурилсан баримт бичгийг ашиглан танд Солонгосын шилдэг компаниудтай тохирох ажлыг олж өгнө." 
+                        data-ne="हाम्रो टोलीले कोरियाका उत्कृष्ट कम्पनीहरूसँग तपाईंलाई मिलाउन तपाईंको AI-संचालित कागजात प्रयोग गर्छ।" 
+                        data-ko="저희 팀이 AI 문서를 활용하여 당신에게 꼭 맞는 한국 기업을 매칭합니다.">Our team uses your AI-powered document to match you with the best companies in Korea.</p>
                 </div>
             </div>
         </div>
@@ -68,16 +131,16 @@
     <main class="container mx-auto px-6 pb-20" id="ai-hr-form-wrapper">
         <div class="form-card max-w-4xl mx-auto">
             <section>
-                <h2 class="section-heading" data-en="📋 1. Personal Information" data-ko="📋 1. 개인 정보">📋 1. Personal Information</h2>
+                <h2 class="section-heading" data-en="📋 1. Personal Information" data-vi="📋 1. Thông tin cá nhân" data-zh="📋 1. 个人信息" data-mn="📋 1. Хувийн мэдээлэл" data-ne="📋 1. व्यक्तिगत जानकारी" data-ko="📋 1. 개인 정보">📋 1. Personal Information</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div><label for="name" class="form-label" data-en="Full Name *" data-ko="이름 *">Full Name *</label><input type="text" id="name" placeholder="Nguyen Van A" required></div>
-                    <div><label for="age" class="form-label" data-en="Age *" data-ko="나이 *">Age *</label><input type="number" id="age" placeholder="28" required></div>
-                    <div><label for="gender" class="form-label" data-en="Gender *" data-ko="성별 *">Gender *</label><select id="gender" required><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div>
-                    <div><label for="nationality" class="form-label" data-en="Nationality *" data-ko="국적 *">Nationality *</label><input type="text" id="nationality" placeholder="Vietnam" required></div>
-                    <div class="lg:col-span-2"><label for="email" class="form-label" data-en="Email *" data-ko="이메일 *">Email *</label><input type="email" id="email" placeholder="nguyenvana@example.com" required></div>
-                    <div><label for="phone" class="form-label" data-en="Phone Number" data-ko="전화번호">Phone Number</label><input type="tel" id="phone" placeholder="+84 90 123 4567"></div>
+                    <div><label for="name" class="form-label" data-en="Full Name *" data-vi="Họ và tên *" data-zh="全名 *" data-mn="Овог нэр *" data-ne="पूरा नाम *" data-ko="이름 *">Full Name *</label><input type="text" id="name" placeholder="Nguyen Van A" required></div>
+                    <div><label for="age" class="form-label" data-en="Age *" data-vi="Tuổi *" data-zh="年龄 *" data-mn="Нас *" data-ne="उमेर *" data-ko="나이 *">Age *</label><input type="number" id="age" placeholder="28" required></div>
+                    <div><label for="gender" class="form-label" data-en="Gender *" data-vi="Giới tính *" data-zh="性别 *" data-mn="Хүйс *" data-ne="लिङ्ग *" data-ko="성별 *">Gender *</label><select id="gender" required><option value="">Select</option><option value="Male">Male</option><option value="Female">Female</option></select></div>
+                    <div><label for="nationality" class="form-label" data-en="Nationality *" data-vi="Quốc tịch *" data-zh="国籍 *" data-mn="Харьяалал *" data-ne="राष्ट्रियता *" data-ko="국적 *">Nationality *</label><input type="text" id="nationality" placeholder="Vietnam" required></div>
+                    <div class="lg:col-span-2"><label for="email" class="form-label" data-en="Email *" data-vi="Email *" data-zh="电子邮件 *" data-mn="Имэйл *" data-ne="इमेल *" data-ko="이메일 *">Email *</label><input type="email" id="email" placeholder="nguyenvana@example.com" required></div>
+                    <div><label for="phone" class="form-label" data-en="Phone Number" data-vi="Số điện thoại" data-zh="电话号码" data-mn="Утасны дугаар" data-ne="फोन नम्बर" data-ko="전화번호">Phone Number</label><input type="tel" id="phone" placeholder="+84 90 123 4567"></div>
                     <div class="md:col-span-2 lg:col-span-3">
-                        <label for="e7visa" class="form-label" data-en="Do you have E-7 Visa? *" data-ko="E-7 비자 보유 여부 *">Do you have E-7 Visa? *</label>
+                        <label for="e7visa" class="form-label" data-en="Do you have E-7 Visa? *" data-vi="Bạn có Visa E-7? *" data-zh="你有E-7签证吗？*" data-mn="E-7 виз байгаа юу? *" data-ne="तपाईंसँग E-7 भिसा छ? *" data-ko="E-7 비자 보유 여부 *">Do you have E-7 Visa? *</label>
                         <select id="e7visa" required>
                             <option value="">Select / 선택</option>
                             <option value="No">No / 없음</option>
@@ -85,60 +148,75 @@
                         </select>
                     </div>
                     <div id="visa-period-container" class="md:col-span-2 lg:col-span-3 hidden">
-                        <label for="visaPeriod" class="form-label" data-en="E-7 Visa Valid Period (From ~ To) *" data-ko="E-7 비자 유효 기간 (시작일 ~ 종료일) *">E-7 Visa Valid Period (From ~ To) *</label>
+                        <label for="visaPeriod" class="form-label" data-en="E-7 Visa Valid Period (From ~ To) *" data-vi="Thời hạn Visa E-7 (Từ ~ Đến) *" data-zh="E-7签证有效期（从~到）*" data-mn="E-7 визний хүчинтэй хугацаа (Эхлэх ~ Дуусах) *" data-ne="E-7 भिसा मान्यता अवधि (देखि ~ सम्म) *" data-ko="E-7 비자 유효 기간 (시작일 ~ 종료일) *">E-7 Visa Valid Period (From ~ To) *</label>
                         <input type="text" id="visaPeriod" placeholder="2024-01-01 ~ 2026-12-31">
                     </div>
-                    <div class="md:col-span-2 lg:col-span-3"><label for="education" class="form-label" data-en="Education Background" data-ko="학력">Education Background</label><input type="text" id="education" placeholder="Hanoi University, Mechanical Engineering"></div>
-                    <div class="md:col-span-2 lg:col-span-3"><label for="sentence" class="form-label" data-en="Professional Summary (One sentence)" data-ko="전문 요약 (한 문장)">Professional Summary (One sentence)</label><input type="text" id="sentence" placeholder="Experienced factory worker with 5 years in electronics assembly"></div>
-                    <div class="md:col-span-2 lg:col-span-3"><label for="workExperience" class="form-label" data-en="Work History (Write in detail)" data-ko="경력 사항 (상세히 작성)">Work History (Write in detail)</label><textarea id="workExperience" rows="4" placeholder="Samsung Vietnam Factory - Assembly Line Operator (2019-2024)&#10;Main tasks: Electronics assembly, quality inspection, equipment maintenance"></textarea></div>
+                    <div class="md:col-span-2 lg:col-span-3"><label for="education" class="form-label" data-en="Education Background" data-vi="Học vấn" data-zh="教育背景" data-mn="Боловсрол" data-ne="शैक्षिक पृष्ठभूमि" data-ko="학력">Education Background</label><input type="text" id="education" placeholder="Hanoi University, Mechanical Engineering"></div>
+                    <div class="md:col-span-2 lg:col-span-3"><label for="sentence" class="form-label" data-en="Professional Summary (One sentence)" data-vi="Tóm tắt chuyên môn (Một câu)" data-zh="专业总结（一句话）" data-mn="Мэргэжлийн товчлол (Нэг өгүүлбэр)" data-ne="व्यावसायिक सारांश (एक वाक्य)" data-ko="전문 요약 (한 문장)">Professional Summary (One sentence)</label><input type="text" id="sentence" placeholder="Experienced factory worker with 5 years in electronics assembly"></div>
+                    <div class="md:col-span-2 lg:col-span-3"><label for="workExperience" class="form-label" data-en="Work History (Write in detail)" data-vi="Lịch sử làm việc (Viết chi tiết)" data-zh="工作经历（详细填写）" data-mn="Ажлын түүх (Дэлгэрэнгүй бичнэ үү)" data-ne="कार्य इतिहास (विस्तृत लेख्नुहोस्)" data-ko="경력 사항 (상세히 작성)">Work History (Write in detail)</label><textarea id="workExperience" rows="4" placeholder="Samsung Vietnam Factory - Assembly Line Operator (2019-2024)&#10;Main tasks: Electronics assembly, quality inspection, equipment maintenance"></textarea></div>
                 </div>
             </section>
             <section class="mt-10">
-                <h2 class="section-heading" data-en="💼 2. Skills & Experience Assessment (11 Questions)" data-ko="💼 2. 기술 및 경험 평가 (11개 질문)">💼 2. Skills & Experience Assessment (11 Questions)</h2>
+                <h2 class="section-heading" data-en="💼 2. Skills & Experience Assessment (11 Questions)" data-vi="💼 2. Đánh giá Kỹ năng & Kinh nghiệm (11 câu hỏi)" data-zh="💼 2. 技能与经验评估（11个问题）" data-mn="💼 2. Ур чадвар & Туршлагын үнэлгээ (11 асуулт)" data-ne="💼 2. सीप र अनुभव मूल्याङ्कन (११ प्रश्नहरू)" data-ko="💼 2. 기술 및 경험 평가 (11개 질문)">💼 2. Skills & Experience Assessment (11 Questions)</h2>
+                
                 <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
-                    <p class="text-green-800 font-semibold text-base" data-en="✅ MULTIPLE SELECTIONS ALLOWED - Click all options that describe you!" data-ko="✅ 복수 선택 가능 - 해당하는 모든 항목을 선택하세요!">✅ MULTIPLE SELECTIONS ALLOWED - Click all options that describe you!</p>
-                    <p class="text-green-700 text-sm mt-1" data-en="You can choose more than one answer for each question." data-ko="각 질문마다 여러 답변을 선택할 수 있습니다.">You can choose more than one answer for each question.</p>
+                    <p class="text-green-800 font-semibold text-base" data-en="✅ MULTIPLE SELECTIONS ALLOWED - Click all options that describe you!" data-vi="✅ CHO PHÉP CHỌN NHIỀU - Nhấp vào tất cả các tùy chọn mô tả bạn!" data-zh="✅ 允许多选 - 点击所有描述您的选项！" data-mn="✅ ОЛОН СОНГОЛТ БОЛОМЖТОЙ - Танд тохирох бүх сонголтыг дарна уу!" data-ne="✅ बहु छनोट अनुमति छ - तपाईंलाई वर्णन गर्ने सबै विकल्पहरू क्लिक गर्नुहोस्!" data-ko="✅ 복수 선택 가능 - 해당하는 모든 항목을 선택하세요!">✅ MULTIPLE SELECTIONS ALLOWED - Click all options that describe you!</p>
+                    <p class="text-green-700 text-sm mt-1" data-en="You can choose more than one answer for each question." data-vi="Bạn có thể chọn nhiều câu trả lời cho mỗi câu hỏi." data-zh="每个问题您可以选择多个答案。" data-mn="Асуулт бүрт нэгээс олон хариулт сонгож болно." data-ne="तपाईं प्रत्येक प्रश्नको लागि एक भन्दा बढी जवाफ छान्न सक्नुहुन्छ।" data-ko="각 질문마다 여러 답변을 선택할 수 있습니다.">You can choose more than one answer for each question.</p>
+                    <p class="text-green-700 text-sm mt-1" data-en="If none apply, you can skip the question." data-vi="Nếu không có mục nào phù hợp, bạn có thể bỏ qua câu hỏi." data-zh="如果没有适用的选项，您可以跳过该问题。" data-mn="Хэрэв тохирох зүйл 없으면 асуултыг алгасаж болно." data-ne="यदि कुनै पनि लागू हुँदैन भने, तपाईं प्रश्न छोड्न सक्नुहुन्छ।" data-ko="해당하는 항목이 없으면 선택하지 않고 넘어가도 됩니다.">If none apply, you can skip the question.</p>
                 </div>
+                
                 <div id="survey-container" class="space-y-6"></div>
             </section>
             <section class="mt-10">
-                <h2 class="section-heading" data-en="🤖 3. AI Document Generation" data-ko="🤖 3. AI 문서 생성">🤖 3. AI Document Generation</h2>
+                <h2 class="section-heading" data-en="🤖 3. AI Document Generation" data-vi="🤖 3. Tạo Tài liệu AI" data-zh="🤖 3. AI文档生成" data-mn="🤖 3. AI баримт бичиг үүсгэх" data-ne="🤖 3. AI कागजात उत्पादन" data-ko="🤖 3. AI 문서 생성">🤖 3. AI Document Generation</h2>
                 <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
-                    <h4 class="font-bold text-blue-900 mb-2" data-en="📄 AI will create for you:" data-ko="📄 AI가 생성하는 문서:">📄 AI will create for you:</h4>
+                    <h4 class="font-bold text-blue-900 mb-2" data-en="📄 AI will create for you:" data-vi="📄 AI sẽ tạo cho bạn:" data-zh="📄 AI将为您创建：" data-mn="📄 AI танд зориулж үүсгэнэ:" data-ne="📄 AI ले तपाईंको लागि सिर्जना गर्नेछ:" data-ko="📄 AI가 생성하는 문서:">📄 AI will create for you:</h4>
                     <ul class="text-sm text-blue-800 space-y-1">
-                        <li data-en="✅ Professional Skills Evaluation Report" data-ko="✅ 전문 기술 평가 보고서">✅ Professional Skills Evaluation Report</li>
-                        <li data-en="✅ Korean Company Job Matching Recommendations" data-ko="✅ 한국 기업 직무 매칭 추천">✅ Korean Company Job Matching Recommendations</li>
-                        <li data-en="✅ Work Permit & Visa Documentation Support" data-ko="✅ 취업 비자 및 서류 지원">✅ Work Permit & Visa Documentation Support</li>
-                        <li data-en="✅ Complete HR Assessment for Employers" data-ko="✅ 고용주를 위한 완전한 HR 평가">✅ Complete HR Assessment for Employers</li>
+                        <li data-en="✅ Professional Skills Evaluation Report" data-vi="✅ Báo cáo Đánh giá Kỹ năng Chuyên nghiệp" data-zh="✅ 专业技能评估报告" data-mn="✅ Мэргэжлийн ур чадварын үнэлгээний тайлан" data-ne="✅ व्यावसायिक सीप मूल्याङ्कन रिपोर्ट" data-ko="✅ 전문 기술 평가 보고서">✅ Professional Skills Evaluation Report</li>
+                        <li data-en="✅ Korean Company Job Matching Recommendations" data-vi="✅ Gợi ý Ghép việc với Công ty Hàn Quốc" data-zh="✅ 韩国公司职位匹配推荐" data-mn="✅ Солонгос компанийн ажлын таарамж санал" data-ne="✅ कोरियाली कम्पनी जागिर मिलान सिफारिसहरू" data-ko="✅ 한국 기업 직무 매칭 추천">✅ Korean Company Job Matching Recommendations</li>
+                        <li data-en="✅ Work Permit & Visa Documentation Support" data-vi="✅ Hỗ trợ Giấy phép Lao động & Hồ sơ Visa" data-zh="✅ 工作许可证和签证文件支持" data-mn="✅ Ажлын зөвшөөрөл & Визний баримт бичгийн дэмжлэг" data-ne="✅ कार्य अनुमति र भिसा कागजात समर्थन" data-ko="✅ 취업 비자 및 서류 지원">✅ Work Permit & Visa Documentation Support</li>
+                        <li data-en="✅ Complete HR Assessment for Employers" data-vi="✅ Đánh giá HR Hoàn chỉnh cho Nhà tuyển dụng" data-zh="✅ 雇主完整人力资源评估" data-mn="✅ Ажил олгогчийн бүрэн HR үнэлгээ" data-ne="✅ रोजगारदाताहरूका लागि पूर्ण HR मूल्याङ्कन" data-ko="✅ 고용주를 위한 완전한 HR 평가">✅ Complete HR Assessment for Employers</li>
                     </ul>
                 </div>
                 <div class="text-center">
-                    <button type="button" id="generate-btn" class="cta-button bg-indigo-600 hover:bg-indigo-700 text-white text-xl py-4 px-8" data-en="🚀 Generate My HR Document" data-ko="🚀 내 HR 문서 생성하기">🚀 Generate My HR Document</button>
+                    <button type="button" id="generate-btn" class="cta-button bg-indigo-600 hover:bg-indigo-700 text-white text-xl py-4 px-8" data-en="🚀 Generate My HR Document" data-vi="🚀 Tạo Tài liệu HR của tôi" data-zh="🚀 生成我的人力资源文件" data-mn="🚀 Миний HR баримт бичиг үүсгэх" data-ne="🚀 मेरो HR कागजात उत्पन्न गर्नुहोस्" data-ko="🚀 내 HR 문서 생성하기">🚀 Generate My HR Document</button>
                 </div>
                 <div id="generation-progress" class="hidden mt-6">
-                    <p class="text-center text-gray-700 font-semibold mb-2" data-en="🤖 AI is analyzing your profile..." data-ko="🤖 AI가 프로필을 분석 중입니다...">🤖 AI is analyzing your profile...</p>
+                    <p class="text-center text-gray-700 font-semibold mb-2" data-en="🤖 AI is analyzing your profile..." data-vi="🤖 AI đang phân tích hồ sơ của bạn..." data-zh="🤖 AI正在分析您的资料..." data-mn="🤖 AI таны профайлыг шинжилж байна..." data-ne="🤖 AI ले तपाईंको प्रोफाइल विश्लेषण गर्दैछ..." data-ko="🤖 AI가 프로필을 분석 중입니다...">🤖 AI is analyzing your profile...</p>
                     <div class="progress-bar"><div id="progress-fill" class="progress-fill" style="width:0%"></div></div>
                     <p class="text-center text-sm text-gray-500 mt-2" id="progress-text">Processing...</p>
                 </div>
                 <div id="prompt-output" class="hidden mt-6 bg-green-50 border-2 border-green-200 p-6 rounded-lg">
-                    <h3 class="text-2xl font-bold text-green-800 mb-3" data-en="✅ Document Generated Successfully!" data-ko="✅ 문서 생성 완료!">✅ Document Generated Successfully!</h3>
-                    <p class="text-gray-700 mb-4" data-en="Your professional evaluation is ready. Click below to save it to our database." data-ko="전문 평가가 준비되었습니다. 아래 버튼을 눌러 데이터베이스에 저장하세요.">Your professional evaluation is ready. Click below to save it to our database.</p>
-                    <button id="apply-btn" class="cta-button bg-green-600 hover:bg-green-700 text-white text-lg py-3 px-6" data-en="📤 Submit & Save My Document" data-ko="📤 문서 제출 및 저장">📤 Submit & Save My Document</button>
+                    <h3 class="text-2xl font-bold text-green-800 mb-3" data-en="✅ Document Generated Successfully!" data-vi="✅ Tạo Tài liệu Thành công!" data-zh="✅ 文档生成成功！" data-mn="✅ Баримт бичиг амжилттай үүсгэгдлээ!" data-ne="✅ कागजात सफलतापूर्वक उत्पन्न भयो!" data-ko="✅ 문서 생성 완료!">✅ Document Generated Successfully!</h3>
+                    <p class="text-gray-700 mb-4" data-en="Your professional evaluation is ready. Click below to save it to our database." data-vi="Đánh giá chuyên nghiệp của bạn đã sẵn sàng. Nhấp vào bên dưới để lưu vào cơ sở dữ liệu." data-zh="您的专业评估已准备就绪。点击下方保存到我们的数据库。" data-mn="Таны мэргэжлийн үнэлгээ бэлэн боллоо. Мэдээллийн санд хадгалахын тулд доор дарна уу." data-ne="तपाईंको व्यावसायिक मूल्याङ्कन तयार छ। हाम्रो डाटाबेसमा बचत गर्न तल क्लिक गर्नुहोस्।" data-ko="전문 평가가 준비되었습니다. 아래 버튼을 눌러 데이터베이스에 저장하세요.">Your professional evaluation is ready. Click below to save it to our database.</p>
+                    <button id="apply-btn" class="cta-button bg-green-600 hover:bg-green-700 text-white text-lg py-3 px-6" data-en="📤 Submit & Save My Document" data-vi="📤 Gửi & Lưu Tài liệu" data-zh="📤 提交并保存我的文件" data-mn="📤 Баримт бичгээ илгээх & Хадгалах" data-ne="📤 पेश गर्नुहोस् र मेरो कागजात सुरक्षित गर्नुहोस्" data-ko="📤 문서 제출 및 저장">📤 Submit & Save My Document</button>
                 </div>
             </section>
             <section class="mt-12 pt-8 border-t border-gray-200">
-                <h2 class="section-heading" data-en="🔎 4. Upload Documents (Optional)" data-ko="🔎 4. 문서 업로드 (선택사항)">🔎 4. Upload Documents (Optional)</h2>
-                <p class="text-sm text-yellow-700 mb-4"><strong data-en="⚠️ Important: Use the same name and email as entered above" data-ko="⚠️ 중요: 위에 입력한 이름과 이메일을 동일하게 사용하세요">⚠️ Important: Use the same name and email as entered above</strong></p>
+                <h2 class="section-heading" data-en="🔎 4. Upload Documents (Optional)" data-vi="🔎 4. Tải lên Tài liệu (Tùy chọn)" data-zh="🔎 4. 上传文件（可选）" data-mn="🔎 4. Баримт бичиг оруулах (Сонгомол)" data-ne="🔎 4. कागजातहरू अपलोड गर्नुहोस् (वैकल्पिक)" data-ko="🔎 4. 문서 업로드 (선택사항)">🔎 4. Upload Documents (Optional)</h2>
+                <p class="text-sm text-yellow-700 mb-4"><strong data-en="⚠️ Important: Use the same name and email as entered above" data-vi="⚠️ Quan trọng: Sử dụng tên và email giống như đã nhập ở trên" data-zh="⚠️ 重要：使用与上面输入相同的姓名和电子邮件" data-mn="⚠️ Чухал: Дээр оруулсан нэр, имэйлээ ашиглана уу" data-ne="⚠️ महत्वपूर्ण: माथि प्रविष्ट गरिएको नाम र इमेल प्रयोग गर्नुहोस्" data-ko="⚠️ 중요: 위에 입력한 이름과 이메일을 동일하게 사용하세요">⚠️ Important: Use the same name and email as entered above</strong></p>
                 <div class="text-center">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFVSo8b2FevQSdL0C3VoB0t-R96uPj098EvuTs2cxUA6MS1g/viewform?usp=header" target="_blank" class="cta-button bg-blue-600 hover:bg-blue-700 text-white text-lg py-3 px-8" data-en="📎 Upload Additional Documents" data-ko="📎 추가 문서 업로드하기">📎 Upload Additional Documents</a>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFVSo8b2FevQSdL0C3VoB0t-R96uPj098EvuTs2cxUA6MS1g/viewform?usp=header" target="_blank" class="cta-button bg-blue-600 hover:bg-blue-700 text-white text-lg py-3 px-8" data-en="📎 Upload Additional Documents" data-vi="📎 Tải lên Tài liệu bổ sung" data-zh="📎 上传其他文件" data-mn="📎 Нэмэлт баримт бичиг оруулах" data-ne="📎 थप कागजातहरू अपलोड गर्नुहोस्" data-ko="📎 추가 문서 업로드하기">📎 Upload Additional Documents</a>
                 </div>
             </section>
         </div>
     </main>
     <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center text-sm">
-            <p data-en="© 2025 AI HR Generator - Supporting Foreign Workers in Korea 🇰🇷" data-ko="© 2025 AI HR Generator - 한국 내 외국인 근로자 지원 🇰🇷">© 2025 AI HR Generator - Supporting Foreign Workers in Korea 🇰🇷</p>
-            <p class="mt-1 text-gray-400">Version 5.0 - November 2025</p>
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-6">
+                <p class="text-lg font-semibold mb-2" data-en="© 2025 AI HR Generator - Supporting Foreign Workers in Korea 🇰🇷" data-vi="© 2025 AI HR Generator - Hỗ trợ Lao động Nước ngoài tại Hàn Quốc 🇰🇷" data-zh="© 2025 AI HR Generator - 支持在韩外国劳工 🇰🇷" data-mn="© 2025 AI HR Generator - Солонгост ажиллах гадаадын ажилчдыг дэмжих 🇰🇷" data-ne="© 2025 AI HR Generator - कोरियामा विदेशी कामदारहरूलाई समर्थन 🇰🇷" data-ko="© 2025 AI HR Generator - 한국 내 외국인 근로자 지원 🇰🇷">© 2025 AI HR Generator - Supporting Foreign Workers in Korea 🇰🇷</p>
+                <p class="text-sm text-gray-400">Copyright © 2025 JobinKorea Inc. All rights reserved.</p>
+                <p class="text-sm text-gray-400">Version 5.0 - November 2025</p>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-sm text-gray-300">
+                <div class="max-w-2xl mx-auto">
+                    <p class="font-semibold text-white mb-2">JobinKorea Inc.</p>
+                    <p class="mb-1"><strong>Contact:</strong> <a href="mailto:8richfields@gmail.com" class="text-blue-400 hover:text-blue-300">8richfields@gmail.com</a></p>
+                    <p class="mb-1"><strong>Address:</strong> 3rd Floor, Daewoo Bellachae, 19 Gangnam-daero 61-gil, Seocho-gu, Seoul</p>
+                    <p class="mb-1"><strong>CEO:</strong> Young-gil Ahn</p>
+                    <p><strong>Personal Information Manager:</strong> Adam Jeong</p>
+                </div>
+            </div>
         </div>
     </footer>
     <div id="toast"></div>
@@ -146,9 +224,35 @@
     <div id="success-modal" class="modal">
         <div class="modal-content">
             <div class="text-6xl mb-4">🎉</div>
-            <h2 class="text-3xl font-bold mb-3" data-en="Success!" data-ko="성공!">Success!</h2>
-            <p class="text-lg mb-4" data-en="Your HR document has been saved successfully to our database." data-ko="HR 문서가 데이터베이스에 성공적으로 저장되었습니다.">Your HR document has been saved successfully to our database.</p>
-            <button id="modal-close-btn" class="cta-button bg-blue-600 text-white text-lg py-3 px-8 w-full" data-en="Close" data-ko="닫기">Close</button>
+            <h2 class="text-3xl font-bold mb-3" data-en="Success!" data-vi="Thành công!" data-zh="成功！" data-mn="Амжилттай!" data-ne="सफल!" data-ko="성공!">Success!</h2>
+            <p class="text-lg mb-4" 
+                data-en="Your document is saved! If a job match is found, we will send the AI Resume & Competency Analysis Report to your email along with the offer."
+                data-vi="Tài liệu của bạn đã được lưu! Nếu tìm thấy công việc phù hợp, chúng tôi sẽ gửi Báo cáo Phân tích Năng lực & Sơ yếu lý lịch AI qua email của bạn cùng với lời mời làm việc."
+                data-zh="您的文件已保存！如果找到匹配的工作，我们将通过您的电子邮件发送 AI 简历和能力分析报告以及工作机会。"
+                data-mn="Таны баримт бичиг хадгалагдлаа! Хэрэв тохирох ажил олдвол бид AI-н CV болон ур чадварын шинжилгээний тайланг ажлын саналтай хамт таны имэйлээр илгээх болно."
+                data-ne="तपाईंको कागजात सुरक्षित भयो! यदि जागिर मिलान फेला पर्‍यो भने, हामी AI रिजुम र योग्यता विश्लेषण रिपोर्ट तपाईंको इमेलमा अफर सहित पठाउनेछौं।"
+                data-ko="문서가 저장되었습니다! 취업이 연결되면, AI 이력 및 역량 분석 보고서를 합격 통보와 함께 이메일로 보내드립니다.">
+                Your document is saved! If a job match is found, we will send the AI Resume & Competency Analysis Report to your email along with the offer.
+            </p>
+            <p class="text-md mb-6 font-semibold"
+                data-en="⬇️ IMPORTANT: Please upload your resume, certifications, and other proof materials using the Google Form link on the main page."
+                data-vi="⬇️ QUAN TRỌNG: Vui lòng tải lên sơ yếu lý lịch, chứng chỉ và các tài liệu chứng minh khác bằng liên kết Google Form trên trang chính."
+                data-zh="⬇️ 重要提示：请使用主页上的 Google 表单链接上传您的简历、证书和其他证明材料。"
+                data-mn="⬇️ ЧУХАЛ: Үндсэн хуудсан дахь Google Form холбоосыг ашиглан CV, гэрчилгээ болон бусад нотлох материалаа байршуулна уу."
+                data-ne="⬇️ महत्त्वपूर्ण: कृपया मुख्य पृष्ठमा रहेको Google Form लिङ्क प्रयोग गरी आफ्नो बायोडाटा, प्रमाणपत्र र अन्य प्रमाण सामग्रीहरू अपलोड गर्नुहोस्।"
+                data-ko="⬇️ 중요: 메인 페이지의 Google Form 링크를 사용하여 이력서, 자격증 및 기타 증빙 자료를 꼭 업로드해주세요.">
+                ⬇️ IMPORTANT: Please upload your resume, certifications, and other proof materials using the Google Form link on the main page.
+            </p>
+            <button id="modal-close-btn" class="cta-button bg-blue-600 text-white text-lg py-3 px-8 w-full" data-en="Close" data-vi="Đóng" data-zh="关闭" data-mn="Хаах" data-ne="बन्द गर्नुहोस्" data-ko="닫기">Close</button>
+            <p class="text-sm text-gray-500 mt-4"
+                data-en="To create a new profile, please refresh the page."
+                data-vi="Để tạo hồ sơ mới, vui lòng tải lại trang."
+                data-zh="要创建新的个人资料，请刷新页面。"
+                data-mn="Шинэ профайл үүсгэхийн тулд хуудсыг дахин ачаална уу."
+                data-ne="नयाँ प्रोफाइल बनाउन, कृपया पृष्ठ रिफ्रेस गर्नुहोस्।"
+                data-ko="새 프로필을 작성하려면 페이지를 새로고침 하세요.">
+                To create a new profile, please refresh the page.
+            </p>
         </div>
     </div>
 
@@ -157,25 +261,100 @@
         const SPREADSHEET_ID = '1YTGJAbqe58Z5w_O1Z-Awsmhoh09PFIIV1jsKvLtMrAE';
         
         let currentLang = 'en';
+
+        // **수정됨:** 언어별 예시 텍스트(플레이스홀더) 추가
+        const placeholders = {
+            name: {
+                en: 'John Doe',
+                vi: 'Nguyen Van A',
+                zh: '张三',
+                mn: 'Батболд',
+                ne: 'हरि शर्मा',
+                ko: '홍길동'
+            },
+            age: { en: '30', vi: '28', zh: '32', mn: '29', ne: '27', ko: '30' },
+            nationality: {
+                en: 'USA',
+                vi: 'Vietnam',
+                zh: '中国',
+                mn: 'Монгол',
+                ne: 'नेपाल',
+                ko: '대한민국'
+            },
+            email: {
+                en: 'john.doe@example.com',
+                vi: 'nguyenvana@example.com',
+                zh: 'zhangsan@example.com',
+                mn: 'batbold@example.com',
+                ne: 'hari.sharma@example.com',
+                ko: 'hong@example.com'
+            },
+            phone: {
+                en: '+1 555 123 4567',
+                vi: '+84 90 123 4567',
+                zh: '+86 139 1234 5678',
+                mn: '+976 9911 2233',
+                ne: '+977 985 123 4567',
+                ko: '010-1234-5678'
+            },
+            education: {
+                en: 'State University, Business Administration',
+                vi: 'Hanoi University, Mechanical Engineering',
+                zh: '北京大学, 计算机科学',
+                mn: 'МУИС, Эдийн засаг',
+                ne: 'त्रिभुवन विश्वविद्यालय, व्यवस्थापन',
+                ko: '서울대학교, 경영학과'
+            },
+            sentence: {
+                en: 'Diligent worker with 3 years of experience in logistics',
+                vi: 'Experienced factory worker with 5 years in electronics assembly',
+                zh: '5年电子厂工作经验，吃苦耐劳',
+                mn: '3 жилийн туршлагатай, хариуцлагатай ажилтан',
+                ne: 'लगनशील कामदार, लजिस्टिक्समा ३ वर्षको अनुभव',
+                ko: '전자 조립 경력 5년, 성실하고 책임감 있음'
+            },
+            workExperience: {
+                en: 'ABC Logistics - Warehouse Staff (2021-2024)\n- Picking, packing, and shipping orders.',
+                vi: 'Samsung Vietnam Factory - Assembly Line Operator (2019-2024)\nMain tasks: Electronics assembly, quality inspection, equipment maintenance',
+                zh: '富士康 - 生产线操作员 (2020-2024)\n- 负责产品组装和质量检测',
+                mn: 'Солонгос компани - Үйлдвэрийн ажилтан (2021-2024)\n- Бүтээгдэхүүн угсрах, чанарын шалгалт',
+                ne: 'एबीसी गार्मेन्ट - मेसिन अपरेटर (२०२०-२०२४)\n- कपडा सिलाई र गुणस्तर जाँच',
+                ko: 'ABC 물류 - 창고 관리 (2021-2024)\n- 주문 피킹, 포장 및 배송 업무'
+            }
+        };
         
         const mfg = {
             id: 'q_manufacturing',
-            label: {en: 'Q-Manufacturing Experience (Select all that apply)', ko: '제조업 경험 (해당하는 모든 항목 선택)'},
-            badge: {en: 'MULTIPLE OK', ko: '복수선택'},
+            label: {
+                en: 'Q-Manufacturing Experience (Select all that apply)',
+                vi: 'Kinh nghiệm Sản xuất (Chọn tất cả phù hợp)',
+                zh: '制造业经验（选择所有适用项）',
+                mn: 'Үйлдвэрлэлийн туршлага (Бүгдийг сонгоно уу)',
+                ne: 'उत्पादन अनुभव (लागू हुने सबै चयन गर्नुहोस्)',
+                ko: '제조업 경험 (해당하는 모든 항목 선택)'
+            },
+            badge: {
+                en: 'MULTIPLE OK',
+                vi: 'CHỌN NHIỀU',
+                zh: '可多选',
+                mn: 'ОЛОН СОНГОХ',
+                ne: 'धेरै छान्नुहोस्',
+                ko: '복수선택'
+            },
             options: ['Assembly/Production Line', 'Quality Control/Inspection', 'Machine Operation/Maintenance', 'Logistics/Warehouse', 'Safety/Environment', 'Packaging', 'Forklift Operation']
         };
         
         const qs = [
-            {id:'q1',label:{en:'Q1. What is your main job experience? (Select all)',ko:'Q1. 주요 업무 경험은? (복수선택)'},badge:{en:'MULTIPLE OK',ko:'복수선택'},options:['Manufacturing/Factory','Construction','Service/Restaurant','Agriculture/Farming','Electronics','Automotive','Textiles/Garment','Food Processing','Other']},
-            {id:'q2',label:{en:'Q2. What skills do you have? (Select all)',ko:'Q2. 보유 기술은? (복수선택)'},badge:{en:'MULTIPLE OK',ko:'복수선택'},options:['Machine Operation','Quality Inspection','Welding','Forklift License','Computer/Office Work','Team Leadership','Korean Language (TOPIK)','English','Chinese','Basic Math','Other']},
-            {id:'q3',label:{en:'Q3. Your personality strengths (Select all)',ko:'Q3. 성격의 강점은? (복수선택)'},badge:{en:'MULTIPLE OK',ko:'복수선택'},options:['Hard-working','Fast Learner','Team Player','Careful/Detail-oriented','Punctual','Reliable','Flexible','Patient','Honest','Other']},
-            {id:'q4',label:{en:'Q4. Preferred work environment (Select all)',ko:'Q4. 선호하는 근무 환경은? (복수선택)'},badge:{en:'MULTIPLE OK',ko:'복수선택'},options:['Factory/Manufacturing','Office Work','Outdoor Work','Shift Work OK','Night Shift OK','Overtime OK','Weekend Work OK','Team-based Work','Independent Work','Other']},
-            {id:'q5',label:{en:'Q5. Your role in team (Select all)',ko:'Q5. 팀에서 역할은? (복수선택)'},badge:{en:'MULTIPLE OK',ko:'복수선택'},options:['Team Leader','Worker/Operator','Quality Checker','Helper/Assistant','Trainer','Problem Solver','Translator','Other']},
-            {id:'q6',label:{en:'Q6. How do you solve problems? (Select all)',ko:'Q6. 문제 해결 방식은? (복수선택)'},badge:{en:'MULTIPLE OK',ko:'복수선택'},options:['Ask supervisor','Try myself first','Discuss with team','Follow manual/procedure','Use experience','Learn from others','Search online','Other']},
-            {id:'q7',label:{en:'Q7. Your achievement/success (Select all)',ko:'Q7. 성과/성공 경험은? (복수선택)'},badge:{en:'MULTIPLE OK',ko:'복수선택'},options:['Perfect attendance','Quality award','Productivity improvement','Safety record','Team leader promotion','Skill certification','Salary increase','Employee of the month','Other']},
-            {id:'q8',label:{en:'Q8. Communication style (Select all)',ko:'Q8. 의사소통 스타일은? (복수선택)'},badge:{en:'MULTIPLE OK',ko:'복수선택'},options:['Direct/Clear','Listen carefully','Follow instructions','Ask questions when unsure','Visual/Show me','Written notes','Use translation app','Other']},
-            {id:'q9',label:{en:'Q9. Which Korean industry interests you? (Select all)',ko:'Q9. 관심 있는 한국 산업은? (복수선택)'},badge:{en:'MULTIPLE OK',ko:'복수선택'},options:['Electronics (Samsung, LG)','Automotive (Hyundai, Kia)','Shipbuilding','Steel/Metal','Construction','Food/Beverage','Textiles/Fashion','Plastics/Rubber','Other']},
-            {id:'q10',label:{en:'Q10. Your goal in Korea - next 3 years (Select all)',ko:'Q10. 한국에서 향후 3년 목표는? (복수선택)'},badge:{en:'MULTIPLE OK',ko:'복수선택'},options:['Save money for family','Learn advanced skills','Get certification','Become team leader','Stable long-term job','Return home with experience','Start own business later','Bring family to Korea','Other']}
+            {id:'q1',label:{en:'Q1. What is your main job experience? (Select all)',vi:'Q1. Kinh nghiệm công việc chính? (Chọn tất cả)',zh:'Q1. 你的主要工作经验？（全选）',mn:'Q1. Таны үндсэн ажлын туршлага? (Бүгдийг сонгоно уу)',ne:'Q1. तपाईंको मुख्य काम अनुभव? (सबै चयन गर्नुहोस्)',ko:'Q1. 주요 업무 경험은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Manufacturing/Factory','Construction','Service/Restaurant','Agriculture/Farming','Electronics','Automotive','Textiles/Garment','Food Processing','Other']},
+            {id:'q2',label:{en:'Q2. What skills do you have? (Select all)',vi:'Q2. Bạn có kỹ năng gì? (Chọn tất cả)',zh:'Q2. 你有什么技能？（全选）',mn:'Q2. Ямар ур чадвартай вэ? (Бүгдийг сонгоно уу)',ne:'Q2. तपाईंसँग के सीपहरू छन्? (सबै चयन गर्नुहोस्)',ko:'Q2. 보유 기술은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Machine Operation','Quality Inspection','Welding','Forklift License','Computer/Office Work','Team Leadership','Korean Language (TOPIK)','English','Chinese','Basic Math','Other']},
+            {id:'q3',label:{en:'Q3. Your personality strengths (Select all)',vi:'Q3. Điểm mạnh tính cách (Chọn tất cả)',zh:'Q3. 你的性格优势（全选）',mn:'Q3. Таны зан чанарын давуу тал (Бүгдийг сонгоно уу)',ne:'Q3. तपाईंको व्यक्तित्व शक्ति (सबै चयन गर्नुहोस्)',ko:'Q3. 성격의 강점은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Hard-working','Fast Learner','Team Player','Careful/Detail-oriented','Punctual','Reliable','Flexible','Patient','Honest','Other']},
+            {id:'q4',label:{en:'Q4. Preferred work environment (Select all)',vi:'Q4. Môi trường làm việc ưa thích (Chọn tất cả)',zh:'Q4. 首选工作环境（全选）',mn:'Q4. Илүүд үздэг ажлын орчин (Бүгдийг сонгоно уу)',ne:'Q4. मनपर्ने कार्य वातावरण (सबै चयन गर्नुहोस्)',ko:'Q4. 선호하는 근무 환경은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Factory/Manufacturing','Office Work','Outdoor Work','Shift Work OK','Night Shift OK','Overtime OK','Weekend Work OK','Team-based Work','Independent Work','Other']},
+            {id:'q5',label:{en:'Q5. Your role in team (Select all)',vi:'Q5. Vai trò trong nhóm (Chọn tất cả)',zh:'Q5. 你在团队中的角色（全选）',mn:'Q5. Багт гүйцэтгэх үүрэг (Бүгдийг сонгоно уу)',ne:'Q5. टोलीमा तपाईंको भूमिका (सबै चयन गर्नुहोस्)',ko:'Q5. 팀에서 역할은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Team Leader','Worker/Operator','Quality Checker','Helper/Assistant','Trainer','Problem Solver','Translator','Other']},
+            {id:'q6',label:{en:'Q6. How do you solve problems? (Select all)',vi:'Q6. Bạn giải quyết vấn đề như thế nào? (Chọn tất cả)',zh:'Q6. 你如何解决问题？（全选）',mn:'Q6. Асуудлыг хэрхэн шийддэг вэ? (Бүгдийг сонгоно уу)',ne:'Q6. तपाईं समस्या कसरी समाधान गर्नुहुन्छ? (सबै चयन गर्नुहोस्)',ko:'Q6. 문제 해결 방식은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Ask supervisor','Try myself first','Discuss with team','Follow manual/procedure','Use experience','Learn from others','Search online','Other']},
+            {id:'q7',label:{en:'Q7. Your achievement/success (Select all)',vi:'Q7. Thành tích/thành công (Chọn tất cả)',zh:'Q7. 你的成就/成功（全选）',mn:'Q7. Таны амжилт/ололт (Бүгдийг сонгоно уу)',ne:'Q7. तपाईंको उपलब्धि/सफलता (सबै चयन गर्नुहोस्)',ko:'Q7. 성과/성공 경험은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Perfect attendance','Quality award','Productivity improvement','Safety record','Team leader promotion','Skill certification','Salary increase','Employee of the month','Other']},
+            {id:'q8',label:{en:'Q8. Communication style (Select all)',vi:'Q8. Phong cách giao tiếp (Chọn tất cả)',zh:'Q8. 沟通风格（全选）',mn:'Q8. Харилцааны хэв маяг (Бүгдийг сонгоно уу)',ne:'Q8. संचार शैली (सबै चयन गर्नुहोस्)',ko:'Q8. 의사소통 스타일은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Direct/Clear','Listen carefully','Follow instructions','Ask questions when unsure','Visual/Show me','Written notes','Use translation app','Other']},
+            {id:'q9',label:{en:'Q9. Which Korean industry interests you? (Select all)',vi:'Q9. Ngành công nghiệp Hàn Quốc nào bạn quan tâm? (Chọn tất cả)',zh:'Q9. 你对哪个韩国行业感兴趣？（全选）',mn:'Q9. Солонгосын аль салбар сонирхож байна? (Бүгдийг сонгоно уу)',ne:'Q9. तपाईंलाई कुन कोरियाली उद्योगमा रुचि छ? (सबै चयन गर्नुहोस्)',ko:'Q9. 관심 있는 한국 산업은? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Electronics (Samsung, LG)','Automotive (Hyundai, Kia)','Shipbuilding','Steel/Metal','Construction','Food/Beverage','Textiles/Fashion','Plastics/Rubber','Other']},
+            {id:'q10',label:{en:'Q10. Your goal in Korea - next 3 years (Select all)',vi:'Q10. Mục tiêu tại Hàn Quốc - 3 năm tới (Chọn tất cả)',zh:'Q10. 你在韩国的目标 - 未来3年（全选）',mn:'Q10. Солонгос дахь зорилго - дараагийн 3 жил (Бүгдийг сонгоно уу)',ne:'Q10. कोरियामा तपाईंको लक्ष्य - अर्को ३ वर्ष (सबै चयन गर्नुहोस्)',ko:'Q10. 한국에서 향후 3년 목표는? (복수선택)'},badge:{en:'MULTIPLE OK',vi:'CHỌN NHIỀU',zh:'可多选',mn:'ОЛОН СОНГОХ',ne:'धेरै छान्नुहोस्',ko:'복수선택'},options:['Save money for family','Learn advanced skills','Get certification','Become team leader','Stable long-term job','Return home with experience','Start own business later','Bring family to Korea','Other']}
         ];
         
         let selections = {};
@@ -183,25 +362,53 @@
         
         function setLanguage(lang) {
             currentLang = lang;
-            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
-            document.getElementById('lang-ko').classList.toggle('active', lang === 'ko');
+            console.log('Switching to language:', lang);
             
+            // Update language buttons
+            const langButtons = ['en', 'vi', 'zh', 'mn', 'ne', 'ko'];
+            langButtons.forEach(l => {
+                const btn = document.getElementById('lang-' + l);
+                if (btn) {
+                    if (l === lang) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                }
+            });
+            
+            // Update all elements with data-* attributes
             document.querySelectorAll('[data-en]').forEach(el => {
                 const text = el.getAttribute('data-' + lang);
-                if (text) {
-                    if (el.tagName === 'BUTTON' || el.tagName === 'A') {
+                if (text) { // 번역이 존재하는 경우에만 업데이트
+                    if (el.tagName === 'BUTTON') {
+                        el.textContent = text;
+                    } else if (el.tagName === 'A') {
                         el.textContent = text;
                     } else {
                         el.innerHTML = text;
                     }
                 }
             });
+
+            // **수정됨:** 언어별 플레이스홀더(예시) 업데이트
+            document.getElementById('name').placeholder = placeholders.name[lang];
+            document.getElementById('age').placeholder = placeholders.age[lang];
+            document.getElementById('nationality').placeholder = placeholders.nationality[lang];
+            document.getElementById('email').placeholder = placeholders.email[lang];
+            document.getElementById('phone').placeholder = placeholders.phone[lang];
+            document.getElementById('education').placeholder = placeholders.education[lang];
+            document.getElementById('sentence').placeholder = placeholders.sentence[lang];
+            document.getElementById('workExperience').placeholder = placeholders.workExperience[lang];
             
+            // Re-render survey questions
             render();
         }
         
         function render() {
             const c = document.getElementById('survey-container');
+            if (!c) return; // survey-container가 없으면 종료
+            
             let h = '';
             
             h += `<div class="p-5 border-2 border-green-500 rounded-lg bg-green-50">
@@ -388,47 +595,74 @@ ${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**
         }
         
         function updateProgress(p, txt) {
-            document.getElementById('progress-fill').style.width = p + '%';
-            document.getElementById('progress-text').textContent = txt;
+            const fill = document.getElementById('progress-fill');
+            const text = document.getElementById('progress-text');
+            if (fill) fill.style.width = p + '%';
+            if (text) text.textContent = txt;
         }
         
         async function handleGen() {
             const d = getData();
+            const errorMsgs = {
+                en: '❌ Required fields:\n• Name\n• Email\n• Nationality\n• E-7 Visa Status',
+                vi: '❌ Trường bắt buộc:\n• Tên\n• Email\n• Quốc tịch\n• Tình trạng Visa E-7',
+                zh: '❌ 必填字段：\n• 姓名\n• 电子邮件\n• 国籍\n• E-7签证状态',
+                mn: '❌ Заавал бөглөх:\n• Нэр\n• Имэйл\n• Харьяалал\n• E-7 визний статус',
+                ne: '❌ आवश्यक क्षेत्रहरू:\n• नाम\n• इमेल\n• राष्ट्रियता\n• E-7 भिसा स्थिति',
+                ko: '❌ 필수 입력 항목:\n• 이름\n• 이메일\n• 국적\n• E-7 비자 보유 여부'
+            };
+            
+            const visaErrorMsgs = {
+                en: '❌ Please enter E-7 Visa valid period',
+                vi: '❌ Vui lòng nhập thời hạn Visa E-7',
+                zh: '❌ 请输入E-7签证有效期',
+                mn: '❌ E-7 визний хүчинтэй хугацааг оруулна уу',
+                ne: '❌ कृपया E-7 भिसा मान्यता अवधि प्रविष्ट गर्नुहोस्',
+                ko: '❌ E-7 비자 유효 기간을 입력해주세요'
+            };
+            
             if (!d.name || !d.email || !d.nationality || !d.e7visa) {
-                alert(currentLang === 'en' ? '❌ Required fields:\n• Name\n• Email\n• Nationality\n• E-7 Visa Status' : '❌ 필수 입력 항목:\n• 이름\n• 이메일\n• 국적\n• E-7 비자 보유 여부');
+                alert(errorMsgs[currentLang]);
                 return;
             }
             
             if (d.e7visa === 'Yes' && !d.visaPeriod) {
-                alert(currentLang === 'en' ? '❌ Please enter E-7 Visa valid period' : '❌ E-7 비자 유효 기간을 입력해주세요');
+                alert(visaErrorMsgs[currentLang]);
                 return;
             }
             
             const btn = document.getElementById('generate-btn');
             const prog = document.getElementById('generation-progress');
             
+            const workingTexts = {en: 'AI working...', vi: 'AI đang xử lý...', zh: 'AI工作中...', mn: 'AI ажиллаж байна...', ne: 'AI काम गरिरहेको छ...', ko: 'AI 작업 중...'};
+            const analyzingTexts = {en: '🔍 Analyzing...', vi: '🔍 Đang phân tích...', zh: '🔍 分析中...', mn: '🔍 Шинжилж байна...', ne: '🔍 विश्लेषण गर्दै...', ko: '🔍 분석 중...'};
+            const processingTexts = {en: '🧠 Processing...', vi: '🧠 Đang xử lý...', zh: '🧠 处理中...', mn: '🧠 Боловсруулж байна...', ne: '🧠 प्रशोधन गर्दै...', ko: '🧠 처리 중...'};
+            const creatingTexts = {en: '📄 Creating...', vi: '📄 Đang tạo...', zh: '📄 创建中...', mn: '📄 Үүсгэж байна...', ne: '📄 सिर्जना गर्दै...', ko: '📄 생성 중...'};
+            const completeTexts = {en: '✅ Complete!', vi: '✅ Hoàn thành!', zh: '✅ 完成！', mn: '✅ Дууслаа!', ne: '✅ पूरा भयो!', ko: '✅ 완료!'};
+            const readyTexts = {en: '✅ Document ready!', vi: '✅ Tài liệu sẵn sàng!', zh: '✅ 文档准备就绪！', mn: '✅ Баримт бэлэн!', ne: '✅ कागजात तयार छ!', ko: '✅ 문서 준비 완료!'};
+            
             btn.disabled = true;
-            btn.innerHTML = '<span class="spinner"></span> ' + (currentLang === 'en' ? 'AI working...' : 'AI 작업 중...');
+            btn.innerHTML = '<span class="spinner"></span> ' + workingTexts[currentLang];
             prog.classList.remove('hidden');
             
             try {
-                updateProgress(15, currentLang === 'en' ? '🔍 Analyzing...' : '🔍 분석 중...');
+                updateProgress(15, analyzingTexts[currentLang]);
                 await new Promise(r => setTimeout(r, 700));
-                updateProgress(50, currentLang === 'en' ? '🧠 Processing...' : '🧠 처리 중...');
+                updateProgress(50, processingTexts[currentLang]);
                 await new Promise(r => setTimeout(r, 800));
-                updateProgress(85, currentLang === 'en' ? '📄 Creating...' : '📄 생성 중...');
+                updateProgress(85, creatingTexts[currentLang]);
                 
                 currentData = d;
                 currentData.fullPrompt = generatePrompt(d);
                 currentData.timestamp = new Date().toLocaleString('ko-KR');
                 
                 await new Promise(r => setTimeout(r, 600));
-                updateProgress(100, currentLang === 'en' ? '✅ Complete!' : '✅ 완료!');
+                updateProgress(100, completeTexts[currentLang]);
                 await new Promise(r => setTimeout(r, 400));
                 
                 prog.classList.add('hidden');
                 document.getElementById('prompt-output').classList.remove('hidden');
-                showToast(currentLang === 'en' ? '✅ Document ready!' : '✅ 문서 준비 완료!');
+                showToast(readyTexts[currentLang]);
                 
                 setTimeout(() => document.getElementById('prompt-output').scrollIntoView({behavior: 'smooth', block: 'center'}), 400);
             } catch (e) {
@@ -436,7 +670,8 @@ ${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**
                 prog.classList.add('hidden');
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = (currentLang === 'en' ? '🚀 Generate My HR Document' : '🚀 내 HR 문서 생성하기');
+                const genBtnTexts = {en: '🚀 Generate My HR Document', vi: '🚀 Tạo Tài liệu HR của tôi', zh: '🚀 生成我的人力资源文件', mn: '🚀 Миний HR баримт бичиг үүсгэх', ne: '🚀 मेरो HR कागजात उत्पन्न गर्नुहोस्', ko: '🚀 내 HR 문서 생성하기'};
+                btn.innerHTML = genBtnTexts[currentLang];
             }
         }
         
@@ -450,8 +685,11 @@ ${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**
         
         async function submitData() {
             const btn = document.getElementById('apply-btn');
+            const savingTexts = {en: 'Saving...', vi: 'Đang lưu...', zh: '保存中...', mn: 'Хадгалж байна...', ne: 'बचत गर्दै...', ko: '저장 중...'};
+            const savedTexts = {en: '✅ Data saved to database!', vi: '✅ Dữ liệu đã lưu vào cơ sở dữ liệu!', zh: '✅ 数据已保存到数据库！', mn: '✅ Өгөгдлийг мэдээллийн санд хадгаллаа!', ne: '✅ डाटा डाटाबेसमा बचत भयो!', ko: '✅ 데이터베이스에 저장됨!'};
+            
             btn.disabled = true;
-            btn.innerHTML = '<span class="spinner"></span> ' + (currentLang === 'en' ? 'Saving...' : '저장 중...');
+            btn.innerHTML = '<span class="spinner"></span> ' + savingTexts[currentLang];
             
             try {
                 currentData.action = 'submitData';
@@ -471,7 +709,7 @@ ${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**
                 if (res.ok || res.type === 'opaque') {
                     console.log('✅ Request sent successfully');
                     showModal();
-                    showToast(currentLang === 'en' ? '✅ Data saved to database!' : '✅ 데이터베이스에 저장됨!');
+                    showToast(savedTexts[currentLang]);
                     console.log('🔍 To verify: Check Apps Script > Executions');
                 } else {
                     throw new Error('HTTP ' + res.status);
@@ -480,11 +718,16 @@ ${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**
             } catch (e) {
                 console.error('❌ Error:', e);
                 
-                const proceed = confirm(
-                    (currentLang === 'en' ? 
-                    '⚠️ Network error detected\n\nThis might be a CORS issue. Your data may have been saved.\n\n🔧 Troubleshooting:\n1. Apps Script deployed as "Anyone"?\n2. Check Apps Script > Executions log\n3. Check Google Sheets for new row\n\nContinue anyway?' :
-                    '⚠️ 네트워크 오류 감지\n\nCORS 문제일 수 있습니다. 데이터가 저장되었을 수 있습니다.\n\n🔧 문제 해결:\n1. Apps Script가 "모든 사용자"로 배포되었나요?\n2. Apps Script > 실행 로그 확인\n3. Google 시트에서 새 행 확인\n\n계속 진행하시겠습니까?')
-                );
+                const corsMessages = {
+                    en: '⚠️ Network error detected\n\nThis might be a CORS issue. Your data may have been saved.\n\n🔧 Troubleshooting:\n1. Apps Script deployed as "Anyone"?\n2. Check Apps Script > Executions log\n3. Check Google Sheets for new row\n\nContinue anyway?',
+                    vi: '⚠️ Lỗi mạng phát hiện\n\nĐây có thể là vấn đề CORS. Dữ liệu của bạn có thể đã được lưu.\n\n🔧 Khắc phục sự cố:\n1. Apps Script được triển khai là "Anyone"?\n2. Kiểm tra Apps Script > Nhật ký Executions\n3. Kiểm tra Google Sheets cho hàng mới\n\nTiếp tục?',
+                    zh: '⚠️ 检测到网络错误\n\n这可能是CORS问题。您的数据可能已保存。\n\n🔧 故障排除：\n1. Apps Script部署为"Anyone"？\n2. 检查Apps Script > 执行日志\n3. 检查Google表格是否有新行\n\n继续？',
+                    mn: '⚠️ Сүлжээний алдаа илэрлээ\n\nЭнэ CORS асуудал байж болно. Таны өгөгдөл хадгалагдсан байж магадгүй.\n\n🔧 Шийдэл:\n1. Apps Script "Anyone" гэж deploy хийсэн үү?\n2. Apps Script > Executions лог шалгах\n3. Google Sheets шинэ мөр шалгах\n\nҮргэлжлүүлэх үү?',
+                    ne: '⚠️ नेटवर्क त्रुटि पत्ता लाग्यो\n\nयो CORS समस्या हुन सक्छ। तपाईंको डाटा बचत भएको हुन सक्छ।\n\n🔧 समस्या निवारण:\n1. Apps Script "Anyone" रूपमा डिप्लोय गरिएको?\n2. Apps Script > Executions लग जाँच गर्नुहोस्\n3. Google Sheets नयाँ पङ्क्ति जाँच गर्नुहोस्\n\nजारी राख्ने?',
+                    ko: '⚠️ 네트워크 오류 감지\n\nCORS 문제일 수 있습니다. 데이터가 저장되었을 수 있습니다.\n\n🔧 문제 해결:\n1. Apps Script가 "모든 사용자"로 배포되었나요?\n2. Apps Script > 실행 로그 확인\n3. Google 시트에서 새 행 확인\n\n계속 진행하시겠습니까?'
+                };
+                
+                const proceed = confirm(corsMessages[currentLang]);
                 
                 if (proceed) {
                     showModal();
@@ -492,41 +735,69 @@ ${Object.keys(d.selections).filter(k => d.selections[k].length > 0).map(k => `**
                 }
             } finally {
                 btn.disabled = false;
-                btn.innerHTML = (currentLang === 'en' ? '📤 Submit & Save My Document' : '📤 문서 제출 및 저장');
+                const submitTexts = {en: '📤 Submit & Save My Document', vi: '📤 Gửi & Lưu Tài liệu', zh: '📤 提交并保存我的文件', mn: '📤 Баримт бичгээ илгээх & Хадгалах', ne: '📤 पेश गर्नुहोस् र मेरो कागजात सुरक्षित गर्नुहोस्', ko: '📤 문서 제출 및 저장'};
+                btn.innerHTML = submitTexts[currentLang];
             }
         }
         
-        setLanguage('en');
-        render();
-        
-        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
-        document.getElementById('lang-ko').addEventListener('click', () => setLanguage('ko'));
-        
-        document.getElementById('e7visa').addEventListener('change', function() {
-            const container = document.getElementById('visa-period-container');
-            const visaPeriodInput = document.getElementById('visaPeriod');
-            if (this.value === 'Yes') {
-                container.classList.remove('hidden');
-                visaPeriodInput.setAttribute('required', 'required');
-            } else {
-                container.classList.add('hidden');
-                visaPeriodInput.removeAttribute('required');
-                visaPeriodInput.value = '';
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('AI HR Generator v5.0 initializing...');
+            
+            // Set initial language
+            setLanguage('en');
+            
+            // Add language button listeners
+            const languageButtons = ['en', 'vi', 'zh', 'mn', 'ne', 'ko'];
+            languageButtons.forEach(lang => {
+                const btn = document.getElementById('lang-' + lang);
+                if (btn) {
+                    console.log('Adding listener to lang-' + lang);
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        console.log('Language button clicked:', lang);
+                        setLanguage(lang);
+                    });
+                } else {
+                    console.warn('Button not found: lang-' + lang);
+                }
+            });
+            
+            // Add other listeners
+            const e7VisaSelect = document.getElementById('e7visa');
+            if (e7VisaSelect) {
+                e7VisaSelect.addEventListener('change', function() {
+                    const container = document.getElementById('visa-period-container');
+                    const visaPeriodInput = document.getElementById('visaPeriod');
+                    if (this.value === 'Yes') {
+                        container.classList.remove('hidden');
+                        visaPeriodInput.setAttribute('required', 'required');
+                    } else {
+                        container.classList.add('hidden');
+                        visaPeriodInput.removeAttribute('required');
+                        visaPeriodInput.value = '';
+                    }
+                });
             }
-        });
-        
-        document.getElementById('generate-btn').addEventListener('click', handleGen);
-        document.getElementById('apply-btn').addEventListener('click', submitData);
-        document.getElementById('modal-close-btn').addEventListener('click', () => {
-            closeModal();
-            if (confirm(currentLang === 'en' ? '✅ Success!\n\nCreate another profile?' : '✅ 성공!\n\n다른 프로필을 작성하시겠습니까?')) {
-                location.reload();
+
+            const genBtn = document.getElementById('generate-btn');
+            if (genBtn) genBtn.addEventListener('click', handleGen);
+
+            const applyBtn = document.getElementById('apply-btn');
+            if (applyBtn) applyBtn.addEventListener('click', submitData);
+
+            // **수정됨:** 모달 닫기 버튼 로직 수정 (새로고침 확인 제거)
+            const closeBtn = document.getElementById('modal-close-btn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => {
+                    closeModal();
+                });
             }
+            
+            console.log('✅ AI HR Generator v5.0 loaded');
+            console.log('📍 Apps Script URL:', APP_URL);
+            console.log('📊 Spreadsheet ID:', SPREADSHEET_ID);
         });
-        
-        console.log('✅ AI HR Generator v5.0 loaded');
-        console.log('📍 Apps Script URL:', APP_URL);
-        console.log('📊 Spreadsheet ID:', SPREADSHEET_ID);
     </script>
 </body>
 </html>
